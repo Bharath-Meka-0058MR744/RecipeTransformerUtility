@@ -1,0 +1,169 @@
+[
+    {
+        "id": "clock-connector-id",
+        "name": "clock",
+        "label": "Clock",
+        "description": "Clock trigger allows you to schedule workflows to run at specific times or intervals.",
+        "version": "5.0.0",
+        "icon": "clock",
+        "tags": {
+            "category": [
+                "Scheduling"
+            ],
+            "deprecated": false,
+            "availableOn": [
+                "workflow",
+                "flow.cloud",
+                "flow.anywhere"
+            ]
+        },
+        "capabilities": {
+            "auths": [
+                {
+                    "name": "not-required",
+                    "label": "No Authentication Required",
+                    "type": "none"
+                }
+            ],
+            "interactionTypes": [
+                "triggers"
+            ]
+        },
+        "sourceMetadata": {
+            "scope": "global",
+            "framework": "cloudstreams",
+            "provider": "ClockProvider"
+        },
+        "configurations": {
+            "allowCustomOperations": false,
+            "allowDeleteApplication": false,
+            "allowUpdateApplication": false
+        }
+    },
+    {
+        "id": "box-connector-id",
+        "name": "box",
+        "label": "Box",
+        "description": "Box is a cloud content management and file sharing service for businesses. Manage files, folders, and collaborate with your team.",
+        "version": "2.0.0",
+        "icon": "box",
+        "tags": {
+            "category": [
+                "File Storage",
+                "Collaboration"
+            ],
+            "deprecated": false,
+            "availableOn": [
+                "workflow",
+                "flow.cloud",
+                "flow.anywhere"
+            ]
+        },
+        "capabilities": {
+            "auths": [
+                {
+                    "name": "oauth2",
+                    "label": "OAuth v2.0 (Authorization Code Flow)",
+                    "type": "oauth_v20_authorization_code"
+                }
+            ],
+            "interactionTypes": [
+                "actions",
+                "triggers"
+            ]
+        },
+        "sourceMetadata": {
+            "scope": "global",
+            "framework": "cloudstreams",
+            "provider": "BoxProvider"
+        },
+        "configurations": {
+            "allowCustomOperations": true,
+            "allowDeleteApplication": false,
+            "allowUpdateApplication": false
+        }
+    },
+    {
+        "id": "loop-connector-id",
+        "name": "loop",
+        "label": "Loop",
+        "description": "Loop connector allows you to iterate over arrays and perform actions on each item in the collection.",
+        "version": "1.0.0",
+        "icon": "group",
+        "tags": {
+            "category": [
+                "Flow Control"
+            ],
+            "deprecated": false,
+            "availableOn": [
+                "workflow",
+                "flow.cloud",
+                "flow.anywhere"
+            ]
+        },
+        "capabilities": {
+            "auths": [
+                {
+                    "name": "not-required",
+                    "label": "No Authentication Required",
+                    "type": "none"
+                }
+            ],
+            "interactionTypes": [
+                "actions"
+            ]
+        },
+        "sourceMetadata": {
+            "scope": "global",
+            "framework": "cloudstreams",
+            "provider": "LoopProvider"
+        },
+        "configurations": {
+            "allowCustomOperations": false,
+            "allowDeleteApplication": false,
+            "allowUpdateApplication": false
+        }
+    },
+    {
+        "id": "developer-tools-connector-id",
+        "name": "developer-tools",
+        "label": "Developer Tools",
+        "description": "Developer Tools provides utilities for data transformation, conditional logic, and other development operations within workflows.",
+        "version": "1.0.0",
+        "icon": "switch",
+        "tags": {
+            "category": [
+                "Developer Tools",
+                "Utilities"
+            ],
+            "deprecated": false,
+            "availableOn": [
+                "workflow",
+                "flow.cloud",
+                "flow.anywhere"
+            ]
+        },
+        "capabilities": {
+            "auths": [
+                {
+                    "name": "not-required",
+                    "label": "No Authentication Required",
+                    "type": "none"
+                }
+            ],
+            "interactionTypes": [
+                "actions"
+            ]
+        },
+        "sourceMetadata": {
+            "scope": "global",
+            "framework": "cloudstreams",
+            "provider": "DeveloperToolsProvider"
+        },
+        "configurations": {
+            "allowCustomOperations": true,
+            "allowDeleteApplication": false,
+            "allowUpdateApplication": false
+        }
+    }
+]
