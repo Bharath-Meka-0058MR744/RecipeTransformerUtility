@@ -17,7 +17,7 @@ from pathlib import Path
 class RecipeTransformer:
     """Transform recipe JSON to conform to newSchema.json standard."""
     
-    def __init__(self, schema_path: str = "recipes/newSchema.json"):
+    def __init__(self, schema_path: str = "./newSchema.json"):
         """Initialize transformer with schema."""
         self.schema_path = Path(schema_path)
         self.schema = self._load_schema()
@@ -194,7 +194,7 @@ def main():
     print(f"=" * 50)
     print(f"Input:  {input_file}")
     print(f"Output: {output_file}")
-    print(f"Schema: recipes/newSchema.json")
+    print(f"Schema: ./newSchema.json")
     print(f"=" * 50)
     
     # Load input recipe
