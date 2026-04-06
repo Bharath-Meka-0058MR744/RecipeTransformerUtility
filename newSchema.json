@@ -1,40 +1,34 @@
-[{
-    "id": "e2d3790e-c3bf-4b10-8fec-cc53eb7e20eb",
-    "name": "atlassian-jira",
-    "label": "Atlassian JIRA",
-    "description": "Jira is a project management tool which helps track and manage issues, bugs, features and tasks.",
-    "version": "2.1.0",
-    "icon": "<base64-encoded-image>",
-    "tags": {
-        "category": ["Incident Management"],
-        "deprecated": false,
-        "availableOn": ["workflow", "flow.cloud", "flow.anywhere"]
-    },
-    "capabilities": {
-        "auths": [
-            {
-                "name":"username-password",
-                "label": "Username Password",
-                "type": "credentials"
-            },
-            {
-                "name":"oauth2",
-                "label": "OAuth v2.0 (Authorization Code Flow)",
-                "type": "oauth_v20_authorization_code"                
-            }
-        ],
-        "interactionTypes": [
-            "actions", "triggers", "templates"
-        ]
-    },
-    "sourceMetadata": {
-        "scope": "global",
-        "framework": "cloudstreams",
-        "provider": "WmJiraProvider"
-    },
-    "configurations": {
-      "allowCustomOperations": true,
-      "allowDeleteApplication": false,
-      "allowUpdateApplication": false
-    }
-}]
+{
+  "id": "string (UUID)",
+  "name": "string",
+  "label": "string",
+  "description": {
+    "overview": "string",
+    "details": "string (markdown supported)"
+  },
+  "version": "string (semver)",
+
+  "tags": {
+    "category": ["string"],
+    "availableOn": ["string"],
+    "keyword": ["string"]
+  },
+
+  "provenance": { 
+    "status": "string"
+  },
+
+  "dependencies": {
+    "applications": [{
+      "id": "string",
+      "label": "string",
+      "icon": "string"
+    }]
+  },
+
+  "compatibility": {},
+
+  "configurations": {},
+
+  "usageStatistics": {}
+}
