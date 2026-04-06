@@ -1,0 +1,343 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://www.ibm.com/webmethods/schemas/recipe-model.json",
+  "title": "Recipe Model",
+  "description": "A Recipe is an integration template that provides metadata for creating workflow or flow service instances",
+  "type": "object",
+  "$defs": {
+    "semver": {
+      "type": "string",
+      "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)$",
+      "description": "Semantic version string (MAJOR.MINOR.PATCH)"
+    }
+  },
+  "required": [
+    "id",
+    "name",
+    "label",
+    "description",
+    "version",
+    "tags",
+    "provenance",
+    "dependencies"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Unique identifier for the recipe",
+      "examples": ["550e8400-e29b-41d4-a716-446655440001"]
+    },
+    "name": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+      "description": "Technical identifier in kebab-case format",
+      "examples": ["salesforce-postgres-sync"]
+    },
+    "label": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Human-readable display name",
+      "examples": ["Salesforce to PostgreSQL Sync"]
+    },
+    "description": {
+      "type": "object",
+      "required": ["overview"],
+      "properties": {
+        "overview": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 150,
+          "description": "Brief description for list views (recommended under 150 characters)",
+          "examples": ["Synchronizes Salesforce account records to PostgreSQL database in real-time"]
+        },
+        "details": {
+          "type": "string",
+          "description": "Comprehensive explanation with markdown/html support",
+          "examples": ["This recipe provides **real-time synchronization** between Salesforce and PostgreSQL..."]
+        }
+      },
+      "additionalProperties": false
+    },
+    "version": {
+      "$ref": "#/$defs/semver",
+      "description": "Semantic version number (MAJOR.MINOR.PATCH)",
+      "examples": ["1.0.0", "10.15.1"]
+    },
+    "tags": {
+      "type": "object",
+      "required": ["category", "availableOn"],
+      "properties": {
+        "category": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "description": "Business category classifications",
+          "examples": [["Data Integration"], ["API Orchestration", "Event Processing"]]
+        },
+        "availableOn": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "enum": ["workflow", "flow.cloud", "flow.anywhere"]
+          },
+          "description": "Platforms where the recipe can be used",
+          "examples": [["workflow", "flow.cloud"]]
+        },
+        "keyword": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "description": "Searchable keywords for discovery",
+          "examples": [["salesforce", "postgresql", "crm", "database"]]
+        },
+        "supportsEdge": {
+          "type": "boolean",
+          "default": false,
+          "description": "Indicates if recipe contains components that can run on edge deployments",
+          "examples": [true, false]
+        }
+      },
+      "additionalProperties": false
+    },
+    "provenance": {
+      "type": "object",
+      "required": ["status", "visibility", "createdAt", "updatedAt", "owner"],
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": ["draft", "published", "deprecated", "archived"],
+          "description": "Lifecycle status of the recipe",
+          "examples": ["published"]
+        },
+        "visibility": {
+          "type": "string",
+          "enum": ["public", "private", "organization"],
+          "description": "Access control level",
+          "examples": ["public"]
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Timestamp when recipe was created (ISO 8601)",
+          "examples": ["2025-01-15T10:30:00Z"]
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Timestamp of last modification (ISO 8601)",
+          "examples": ["2025-06-20T14:45:00Z"]
+        },
+        "publishedAt": {
+          "type": ["string", "null"],
+          "format": "date-time",
+          "description": "Timestamp when recipe was published (null if draft)",
+          "examples": ["2025-01-20T09:00:00Z", null]
+        },
+        "owner": {
+          "type": "object",
+          "required": ["userId"],
+          "properties": {
+            "userId": {
+              "type": "string",
+              "minLength": 1,
+              "description": "User identifier",
+              "examples": ["usr_123456"]
+            },
+            "tenantId": {
+              "type": "string",
+              "minLength": 1,
+              "description": "Tenant identifier",
+              "examples": ["tenant_abc123"]
+            },
+            "orgId": {
+              "type": "string",
+              "minLength": 1,
+              "description": "Organization identifier",
+              "examples": ["org_456789"]
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "dependencies": {
+      "type": "object",
+      "required": ["applications"],
+      "properties": {
+        "applications": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["id", "label"],
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1,
+                "description": "Application/connector identifier",
+                "examples": ["salesforce", "postgresql", "kafka"]
+              },
+              "label": {
+                "type": "string",
+                "minLength": 1,
+                "description": "Display name for UI",
+                "examples": ["Salesforce", "PostgreSQL", "Apache Kafka"]
+              },
+              "icon": {
+                "type": "string",
+                "format": "string",
+                "description": "Icon named-identifier for UI display",
+                "examples": ["salesforce"]
+              }
+            },
+            "additionalProperties": false
+          },
+          "description": "Application/connector dependencies"
+        },
+        "interactions": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["type", "applicationId", "id", "label", "authType"],
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": ["trigger", "action"],
+                "description": "Discriminator field identifying whether this is a trigger or action",
+                "examples": ["trigger", "action"]
+              },
+              "applicationId": {
+                "type": "string",
+                "minLength": 1,
+                "description": "Reference to application ID in dependencies.applications[].id",
+                "examples": ["salesforce", "google-contacts", "amazon-s3"]
+              },
+              "id": {
+                "type": "string",
+                "minLength": 1,
+                "description": "Unique identifier for the specific trigger or action",
+                "examples": ["new-contact", "create-contact", "get-object"]
+              },
+              "label": {
+                "type": "string",
+                "minLength": 1,
+                "description": "Human-readable display name for the trigger or action",
+                "examples": ["New Contact Created", "Create Contact", "Get Object from S3"]
+              },
+              "triggerType": {
+                "type": "string",
+                "enum": ["webhook", "polling", "listener"],
+                "description": "Trigger mechanism type (only present when type is 'trigger')",
+                "examples": ["webhook", "polling", "listener"]
+              },
+              "authType": {
+                "type": "string",
+                "minLength": 1,
+                "description": "Authentication type required for this interaction",
+                "examples": ["oauth2", "username-password", "api-key", "aws-signature-v4"]
+              }
+            },
+            "if": {
+              "properties": {
+                "type": {
+                  "const": "trigger"
+                }
+              }
+            },
+            "then": {
+              "required": ["triggerType"]
+            },
+            "else": {
+              "not": {
+                "required": ["triggerType"]
+              }
+            },
+            "additionalProperties": false
+          },
+          "description": "Unified array of all interactions (triggers and actions) with authentication requirements"
+        }
+      },
+      "additionalProperties": false
+    },
+    "compatibility": {
+      "type": "object",
+      "properties": {
+        "runtime": {
+          "type": "string",
+          "pattern": "^(workflow-engine|integration-server)(,(workflow-engine|integration-server))*$",
+          "description": "Supported runtime(s) as comma-separated string",
+          "examples": ["workflow-engine", "workflow-engine,integration-server"]
+        },
+        "minRuntimeVersion": {
+          "$ref": "#/$defs/semver",
+          "description": "Minimum runtime version (semver)",
+          "examples": ["10.5.0", "10.15.0"]
+        },
+        "maxRuntimeVersion": {
+          "$ref": "#/$defs/semver",
+          "description": "Maximum runtime version (semver)",
+          "examples": ["12.1.0", "10.15.0"]
+        }
+      },
+      "additionalProperties": false
+    },
+    "configurations": {
+      "type": "object",
+      "description": "Reserved for future system-level configuration properties",
+      "additionalProperties": true
+    },
+    "usageStatistics": {
+      "type": "object",
+      "properties": {
+        "downloadCount": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Number of times recipe has been downloaded",
+          "examples": [1247]
+        },
+        "activeInstances": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Number of active instances",
+          "examples": [89]
+        },
+        "rating": {
+          "type": "object",
+          "properties": {
+            "average": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 5,
+              "description": "Average rating score",
+              "examples": [4.7]
+            },
+            "count": {
+              "type": "integer",
+              "minimum": 0,
+              "description": "Total number of ratings",
+              "examples": [156]
+            }
+          },
+          "additionalProperties": false
+        },
+        "lastUsed": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Timestamp of most recent usage (ISO 8601)",
+          "examples": ["2025-12-20T18:30:00Z"]
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}
