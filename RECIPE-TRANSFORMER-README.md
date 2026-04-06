@@ -1,10 +1,10 @@
-# Recipe Transformer Utility
+# Recipe Transformer Utility v2.0
 
-A Python utility to transform recipe JSON files to conform to the `newSchema.json` standard format.
+A Python utility to transform recipe JSON files to conform to the `newSchema.json` standard format while **preserving ALL original content**.
 
 ## Overview
 
-This utility helps standardize recipe/connector definitions by transforming various input formats into a consistent schema that follows the `newSchema.json` specification.
+This utility helps standardize recipe/connector definitions by transforming various input formats into a consistent schema that follows the `newSchema.json` specification. **Version 2.0 ensures NO DATA LOSS** - all original content is preserved in the transformed output.
 
 ## Features
 
@@ -13,7 +13,11 @@ This utility helps standardize recipe/connector definitions by transforming vari
 - ✅ Extracts connector information from workflow recipes
 - ✅ Generates unique IDs for each connector
 - ✅ Preserves connector icons and metadata
-- ✅ Outputs clean, formatted JSON
+- ✅ **PRESERVES ALL ORIGINAL DATA** - no content loss (v2.0)
+- ✅ Stores complete original recipe in `originalRecipeData` field
+- ✅ Extracts and preserves actions, triggers, operations
+- ✅ Maintains custom fields and nested data structures
+- ✅ Outputs clean, formatted JSON with transformation metadata
 
 ## Schema Format
 
@@ -46,6 +50,22 @@ The standard schema (`newSchema.json`) defines connectors with the following str
         "allowDeleteApplication": false,
         "allowUpdateApplication": false
     }
+},
+    "originalRecipeData": {
+        // Complete original recipe data preserved here
+    },
+    "recipeDetails": {
+        // Extracted recipe details (actions, triggers, etc.)
+    },
+    "actions": [...],
+    "triggers": [...],
+    "operations": [...],
+    "transformationMetadata": {
+        "transformedAt": "2024-01-01T00:00:00Z",
+        "transformerVersion": "2.0.0",
+        "schemaVersion": "newSchema.json",
+        "preservedOriginalData": true
+    }
 }
 ```
 
@@ -54,26 +74,39 @@ The standard schema (`newSchema.json`) defines connectors with the following str
 ### Basic Usage
 
 ```bash
-python3 recipe-transformer.py <input_recipe.json> [output_file.json]
+python3 recipe_transformer.py <input_recipe.json> [output_file.json]
 ```
 
 ### Examples
 
-**Transform a complex recipe:**
+**Transform a complex recipe (preserves all content):**
 ```bash
-python3 recipe-transformer.py recipes/boxComplexRecipe.json recipes/transformed_recipe.json
+python3 recipe_transformer.py recipes/boxComplexRecipe.json recipes/transformed_recipe.json
+# Input: 361 KB → Output: ~361 KB (all content preserved)
 ```
 
 **Validate an existing recipe (auto-generates output filename):**
 ```bash
-python3 recipe-transformer.py recipes/boxRecipev1.json
+python3 recipe_transformer.py recipes/boxRecipev1.json
 # Output: recipes/boxRecipev1_transformed.json
 ```
 
 **Transform with custom output path:**
 ```bash
-python3 recipe-transformer.py recipes/myRecipe.json output/standardized_recipe.json
+python3 recipe_transformer.py recipes/myRecipe.json output/standardized_recipe.json
 ```
+
+### Web Application
+
+A Flask-based web interface is also available:
+
+```bash
+cd webapp
+./run.sh
+# Access at http://localhost:5001
+```
+
+See [WEBAPP-QUICKSTART.md](WEBAPP-QUICKSTART.md) for details.
 
 ## Input Formats Supported
 
@@ -131,14 +164,25 @@ The utility generates a JSON array of connector definitions that conform to the 
 ]
 ```
 
-## Transformation Logic
+## Transformation Logic (v2.0)
 
 1. **Format Detection**: Identifies if input is already in standard format
 2. **Connector Extraction**: Extracts connector names and metadata from complex structures
 3. **ID Generation**: Creates unique UUIDs for each connector
 4. **Metadata Mapping**: Maps icons, names, and other properties
 5. **Schema Compliance**: Ensures all required fields are present
-6. **Validation**: Verifies output conforms to schema standards
+6. **Data Preservation**: Stores complete original data in `originalRecipeData`
+7. **Content Extraction**: Extracts actions, triggers, operations into dedicated fields
+8. **Custom Field Preservation**: Maintains all custom fields with `original_` prefix
+9. **Metadata Addition**: Adds transformation metadata for tracking
+10. **Validation**: Verifies output conforms to schema standards
+
+### Key Improvements in v2.0
+
+- **Zero Data Loss**: All original content is preserved in the output
+- **Dual Storage**: Data stored both in `originalRecipeData` (complete) and extracted fields (structured)
+- **File Size Preservation**: Output file size matches or exceeds input size (no compression)
+- **Transformation Tracking**: Metadata tracks when and how transformation occurred
 
 ## Requirements
 
@@ -149,13 +193,14 @@ The utility generates a JSON array of connector definitions that conform to the 
 
 ```
 .
-├── recipe-transformer.py          # Main utility script
-├── RECIPE-TRANSFORMER-README.md   # This documentation
-└── recipes/
-    ├── newSchema.json             # Standard schema definition
-    ├── boxRecipev1.json           # Example: Already compliant
-    ├── boxComplexRecipe.json      # Example: Complex format
-    └── *_transformed.json         # Generated output files
+├── recipe_transformer.py          # Main utility script (CLI & library)
+├── newSchema.json                 # Standard schema definition
+├── README.md                      # Main documentation
+├── RECIPE-TRANSFORMER-README.md   # Detailed documentation
+└── webapp/                        # Web interface
+    ├── app.py                     # Flask application
+    ├── run.sh                     # Startup script
+    └── templates/                 # HTML templates
 ```
 
 ## Error Handling
