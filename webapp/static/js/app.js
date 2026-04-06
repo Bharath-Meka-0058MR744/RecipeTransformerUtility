@@ -177,7 +177,7 @@ async function validateSchema() {
         
         if (data.success) {
             if (data.valid) {
-                showStatus(inputStatus, '✅ Input already conforms to newSchema.json format', 'success');
+                showStatus(inputStatus, '✅ Input already conforms to recipe-schema-draft-01.json format', 'success');
             } else {
                 showStatus(inputStatus, 'ℹ️ Input needs transformation to conform to schema', 'info');
             }

@@ -10,7 +10,7 @@
     <div class="container">
         <header>
             <h1>🔄 Recipe Transformer</h1>
-            <p class="subtitle">Transform recipe JSON to newSchema.json format</p>
+            <p class="subtitle">Transform recipe JSON to recipe-schema-draft-01.json format</p>
         </header>
 
         <div class="main-content">
@@ -71,7 +71,7 @@
                 <ol>
                     <li>Paste your recipe JSON in the input area</li>
                     <li>Click "Validate" to check if it's already in the correct format (optional)</li>
-                    <li>Click "Transform" to convert to newSchema.json format</li>
+                    <li>Click "Transform" to convert to recipe-schema-draft-01.json format</li>
                     <li>Copy or download the transformed output</li>
                 </ol>
             </div>
@@ -80,19 +80,19 @@
                 <h3>📋 Supported Input Formats</h3>
                 <ul>
                     <li>Complex recipe structures with connectors</li>
-                    <li>Simple connector lists</li>
-                    <li>Already formatted newSchema.json (validation only)</li>
+                    <li>Simple recipe objects</li>
+                    <li>Already formatted recipe-schema-draft-01.json (validation only)</li>
                 </ul>
             </div>
 
             <div class="info-card">
                 <h3>🎯 Output Format</h3>
-                <p>The output conforms to <strong>newSchema.json</strong> standard with:</p>
+                <p>The output conforms to <strong>recipe-schema-draft-01.json</strong> standard with:</p>
                 <ul>
-                    <li>Unique connector IDs (UUID)</li>
+                    <li>Unique recipe IDs (UUID)</li>
                     <li>Structured descriptions (overview & details)</li>
                     <li>Categorized tags and keywords</li>
-                    <li>Provenance status tracking</li>
+                    <li>Provenance metadata (status, visibility, timestamps, owner)</li>
                     <li>Application dependencies</li>
                     <li>Compatibility and configuration settings</li>
                     <li>Usage statistics tracking</li>
