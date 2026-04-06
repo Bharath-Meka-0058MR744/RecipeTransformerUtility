@@ -18,7 +18,7 @@ app = Flask(__name__)
 CORS(app)
 
 # Initialize transformer with schema from parent directory
-SCHEMA_PATH = Path(__file__).parent.parent / "newSchema.json"
+SCHEMA_PATH = Path(__file__).parent.parent / "recipe-schema-draft-01.json"
 transformer = RecipeTransformer(schema_path=str(SCHEMA_PATH))
 
 
@@ -31,7 +31,7 @@ def index():
 @app.route('/api/transform', methods=['POST'])
 def transform_recipe():
     """
-    Transform recipe JSON to conform to newSchema.json.
+    Transform recipe JSON to conform to recipe-schema-draft-01.json.
     
     Expects JSON payload with 'input' field containing the recipe data.
     Returns transformed schema or error message.
@@ -64,7 +64,7 @@ def transform_recipe():
         return jsonify({
             'success': True,
             'output': transformed_data,
-            'message': f'Successfully transformed {len(transformed_data)} connector(s)'
+            'message': f'Successfully transformed recipe'
         })
     
     except Exception as e:
@@ -76,7 +76,7 @@ def transform_recipe():
 
 @app.route('/api/schema', methods=['GET'])
 def get_schema():
-    """Return the newSchema.json for reference."""
+    """Return the recipe-schema-draft-01.json for reference."""
     try:
         return jsonify({
             'success': True,
@@ -92,7 +92,7 @@ def get_schema():
 @app.route('/api/validate', methods=['POST'])
 def validate_schema():
     """
-    Validate if input conforms to newSchema.json format.
+    Validate if input conforms to recipe-schema-draft-01.json format.
     
     Expects JSON payload with 'input' field.
     Returns validation result.
@@ -119,19 +119,19 @@ def validate_schema():
                     'error': f'Invalid JSON format: {str(e)}'
                 }), 400
         
-        # Check if it's a list and validate format
-        if isinstance(input_data, list):
+        # Check if it's a dict and validate format
+        if isinstance(input_data, dict):
             is_valid = transformer._is_valid_schema_format(input_data)
             return jsonify({
                 'success': True,
                 'valid': is_valid,
-                'message': 'Input conforms to schema' if is_valid else 'Input does not conform to schema'
+                'message': 'Input conforms to recipe-schema-draft-01.json' if is_valid else 'Input does not conform to schema'
             })
         else:
             return jsonify({
                 'success': True,
                 'valid': False,
-                'message': 'Input must be a list of connector objects'
+                'message': 'Input must be a recipe object (dictionary)'
             })
     
     except Exception as e:
