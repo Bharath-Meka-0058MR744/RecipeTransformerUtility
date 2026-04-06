@@ -1,0 +1,35 @@
+{
+  "name": "Salesforce Integration",
+  "connector": "salesforce",
+  "description": "Integration with Salesforce CRM",
+  "version": "2.1.0",
+  "actions": [
+    {
+      "name": "createAccount",
+      "label": "Create Account",
+      "description": "Creates a new account in Salesforce"
+    },
+    {
+      "name": "updateContact",
+      "label": "Update Contact",
+      "description": "Updates an existing contact"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "onNewLead",
+      "label": "On New Lead",
+      "description": "Triggers when a new lead is created"
+    }
+  ],
+  "authentication": {
+    "type": "oauth2",
+    "authUrl": "https://login.salesforce.com/services/oauth2/authorize",
+    "tokenUrl": "https://login.salesforce.com/services/oauth2/token"
+  },
+  "metadata": {
+    "category": "CRM",
+    "tags": ["sales", "customer-management", "cloud"],
+    "provider": "Salesforce Inc."
+  }
+}

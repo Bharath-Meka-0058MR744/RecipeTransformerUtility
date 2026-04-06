@@ -1,0 +1,123 @@
+[
+  {
+    "id": "a46af02f-a89b-49b6-947a-000d809d740b",
+    "name": "Salesforce Integration",
+    "label": "Salesforce Integration",
+    "description": "Salesforce Integration connector for workflow integration.",
+    "version": "1.0.0",
+    "icon": "puzzle",
+    "tags": {
+      "category": [
+        "Integration"
+      ],
+      "deprecated": false,
+      "availableOn": [
+        "workflow",
+        "flow.cloud",
+        "flow.anywhere"
+      ]
+    },
+    "capabilities": {
+      "auths": [
+        {
+          "name": "oauth2",
+          "label": "OAuth v2.0 (Authorization Code Flow)",
+          "type": "oauth_v20_authorization_code"
+        }
+      ],
+      "interactionTypes": [
+        "actions",
+        "triggers"
+      ]
+    },
+    "sourceMetadata": {
+      "scope": "global",
+      "framework": "cloudstreams",
+      "provider": "SalesforceIntegrationProvider"
+    },
+    "configurations": {
+      "allowCustomOperations": true,
+      "allowDeleteApplication": false,
+      "allowUpdateApplication": false
+    },
+    "originalRecipeData": {
+      "name": "Salesforce Integration",
+      "connector": "salesforce",
+      "description": "Integration with Salesforce CRM",
+      "version": "2.1.0",
+      "actions": [
+        {
+          "name": "createAccount",
+          "label": "Create Account",
+          "description": "Creates a new account in Salesforce"
+        },
+        {
+          "name": "updateContact",
+          "label": "Update Contact",
+          "description": "Updates an existing contact"
+        }
+      ],
+      "triggers": [
+        {
+          "name": "onNewLead",
+          "label": "On New Lead",
+          "description": "Triggers when a new lead is created"
+        }
+      ],
+      "authentication": {
+        "type": "oauth2",
+        "authUrl": "https://login.salesforce.com/services/oauth2/authorize",
+        "tokenUrl": "https://login.salesforce.com/services/oauth2/token"
+      },
+      "metadata": {
+        "category": "CRM",
+        "tags": [
+          "sales",
+          "customer-management",
+          "cloud"
+        ],
+        "provider": "Salesforce Inc."
+      }
+    },
+    "original_connector": "salesforce",
+    "original_actions": [
+      {
+        "name": "createAccount",
+        "label": "Create Account",
+        "description": "Creates a new account in Salesforce"
+      },
+      {
+        "name": "updateContact",
+        "label": "Update Contact",
+        "description": "Updates an existing contact"
+      }
+    ],
+    "original_triggers": [
+      {
+        "name": "onNewLead",
+        "label": "On New Lead",
+        "description": "Triggers when a new lead is created"
+      }
+    ],
+    "original_authentication": {
+      "type": "oauth2",
+      "authUrl": "https://login.salesforce.com/services/oauth2/authorize",
+      "tokenUrl": "https://login.salesforce.com/services/oauth2/token"
+    },
+    "original_metadata": {
+      "category": "CRM",
+      "tags": [
+        "sales",
+        "customer-management",
+        "cloud"
+      ],
+      "provider": "Salesforce Inc."
+    },
+    "transformationMetadata": {
+      "transformedAt": "2026-04-06T06:18:32.319258Z",
+      "transformerVersion": "2.0.0",
+      "schemaVersion": "newSchema.json",
+      "preservedOriginalData": true
+    }
+  }
+]

@@ -75,8 +75,9 @@ class RecipeTransformer:
         if not data:
             return False
         
-        required_fields = {'id', 'name', 'label', 'description', 'version', 
-                          'tags', 'capabilities', 'sourceMetadata', 'configurations'}
+        required_fields = {'id', 'name', 'label', 'description', 'version',
+                          'tags', 'provenance', 'dependencies', 'compatibility',
+                          'configurations', 'usageStatistics'}
         
         for item in data:
             if not isinstance(item, dict):
@@ -176,9 +177,9 @@ class RecipeTransformer:
         return "custom-recipe"
     
     def _create_connector_with_data(
-        self, 
-        name: str, 
-        icon: str = "", 
+        self,
+        name: str,
+        icon: str = "",
         original_data: Any = None
     ) -> Dict[str, Any]:
         """
@@ -191,39 +192,36 @@ class RecipeTransformer:
         # Create label from name
         label = name.replace('-', ' ').replace('_', ' ').title()
         
-        # Base connector structure following schema
+        # Base connector structure following newSchema.json
         connector = {
             "id": connector_id,
             "name": name,
             "label": label,
-            "description": f"{label} connector for workflow integration.",
+            "description": {
+                "overview": f"{label} connector for workflow integration",
+                "details": f"Comprehensive integration connector for {label} with support for actions and triggers."
+            },
             "version": "1.0.0",
-            "icon": icon or name,
             "tags": {
                 "category": ["Integration"],
-                "deprecated": False,
-                "availableOn": ["workflow", "flow.cloud", "flow.anywhere"]
+                "availableOn": ["workflow", "flow.cloud", "flow.anywhere"],
+                "keyword": ["automation", "integration", "connector"]
             },
-            "capabilities": {
-                "auths": [
+            "provenance": {
+                "status": "active"
+            },
+            "dependencies": {
+                "applications": [
                     {
-                        "name": "oauth2",
-                        "label": "OAuth v2.0 (Authorization Code Flow)",
-                        "type": "oauth_v20_authorization_code"
+                        "id": connector_id,
+                        "label": label,
+                        "icon": icon or name
                     }
-                ],
-                "interactionTypes": ["actions", "triggers"]
+                ]
             },
-            "sourceMetadata": {
-                "scope": "global",
-                "framework": "cloudstreams",
-                "provider": f"{label.replace(' ', '')}Provider"
-            },
-            "configurations": {
-                "allowCustomOperations": True,
-                "allowDeleteApplication": False,
-                "allowUpdateApplication": False
-            }
+            "compatibility": {},
+            "configurations": {},
+            "usageStatistics": {}
         }
         
         # CRITICAL: Preserve ALL original data
