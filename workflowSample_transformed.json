@@ -1,0 +1,66 @@
+{
+  "id": "550e8400-e29b-41d4-a716-446655440105",
+  "name": "slack-message-to-google-tasks",
+  "label": "Create Google Task for Slack Message Containing Keyword",
+  "description": {
+    "overview": "Automatically creates a Google Task when a Slack message contains a specific keyword",
+    "details": "This recipe provides **instant task creation** from Slack conversations to Google Tasks:\n\n**Features:**\n- Triggers when a new message is posted to your Slack channel\n- Filters messages containing a specific keyword (e.g., \"@task\", \"TODO\", \"reminder\")\n- Automatically creates a new task in your Google Tasks list\n- Captures message content as task description\n- Includes sender information for context\n- Enables quick task capture without leaving Slack\n- Integrates with Google Workspace task management\n\n**Task Details:**\n- Task title derived from message content\n- Full message text as task notes\n- Sender username for reference\n- Timestamp of message creation\n- Optional: Due date parsing from message content\n\n**Prerequisites:**\n- Slack workspace with appropriate channel access\n- Google Tasks account (Google Workspace or personal Gmail)\n- Pre-configured Google Tasks list\n- Defined keyword trigger (configurable)\n\n**Ideal for:**\n- Individuals managing personal tasks from team conversations\n- Remote workers capturing action items from meetings\n- Teams using Google Workspace for task management\n- Project coordinators tracking deliverables mentioned in Slack\n- Professionals maintaining personal to-do lists from work discussions"
+  },
+  "version": "1.0.0",
+  "tags": {
+    "category": [
+      "Task Management",
+      "Productivity"
+    ],
+    "keyword": [
+      "slack",
+      "google-tasks",
+      "tasks",
+      "todo",
+      "automation",
+      "productivity",
+      "collaboration"
+    ],
+    "availableOn": [
+      "workflow"
+    ]
+  },
+  "provenance": {
+    "status": "published",
+    "visibility": "public",
+    "createdAt": "2024-01-22T09:30:00Z",
+    "updatedAt": "2024-01-22T09:30:00Z",
+    "publishedAt": "2024-01-22T11:15:00Z",
+    "owner": {
+      "userId": "IBM"
+    }
+  },
+  "dependencies": {
+    "applications": [
+      {
+        "id": "slack",
+        "label": "Slack",
+        "icon": "slack"
+      },
+      {
+        "id": "google-tasks",
+        "label": "Google Tasks",
+        "icon": "google_tasks"
+      }
+    ]
+  },
+  "compatibility": {
+    "runtime": "workflow-engine",
+    "minRuntimeVersion": "10.15.0"
+  },
+  "usageStatistics": {
+    "downloadCount": 734,
+    "activeInstances": 123,
+    "rating": {
+      "average": 4.4,
+      "count": 78
+    },
+    "lastUsed": "2024-12-21T11:00:00Z"
+  },
+  "configurations": {}
+}
