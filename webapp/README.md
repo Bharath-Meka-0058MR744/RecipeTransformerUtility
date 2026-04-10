@@ -1,14 +1,27 @@
-# Recipe Transformer Web Application
+# Recipe Transformer Web Application v5.0
 
-A web-based interface for transforming recipe JSON schemas to conform to the newSchema.json standard.
+A web-based interface for transforming recipe JSON schemas to conform to the recipe-schema-draft-01.json standard with **intelligent metadata extraction**.
 
 ## Features
 
 - 🔄 **Transform Recipe Schemas**: Convert complex recipe structures to standardized format
-- ✅ **Validate Schemas**: Check if input already conforms to newSchema.json
+- 🧠 **Intelligent Metadata Extraction**: Automatically generates rich descriptions, categories, and keywords
+- 🎯 **No Mapping Files Required**: Extracts all metadata directly from workflow JSON
+- 🔍 **Smart Application Detection**: Identifies applications, frameworks, and versions automatically
+- ✅ **Validate Schemas**: Check if input is valid JSON
 - 📋 **Copy & Download**: Easy export of transformed schemas
 - 🎨 **Modern UI**: Clean, responsive interface with real-time feedback
 - ⌨️ **Keyboard Shortcuts**: Efficient workflow with keyboard support
+
+## What's New in v5.0
+
+- ✨ **Automatic Flow UID Extraction**: Uses actual flow UID from input as recipe ID
+- ✨ **Rich Description Generation**: Creates detailed descriptions based on workflow analysis
+- ✨ **Framework Detection**: Identifies cloudstreams, cli, and other frameworks
+- ✨ **Trigger & Action Analysis**: Extracts complete interaction metadata
+- ✨ **Smart Categorization**: Intelligently assigns categories based on applications
+- ✨ **Keyword Generation**: Automatically generates relevant keywords
+- ✨ **No Manual Configuration**: Everything extracted automatically!
 
 ## Project Structure
 

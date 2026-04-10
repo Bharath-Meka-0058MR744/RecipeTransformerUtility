@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 """
-Recipe Transformer Web Application
-Flask backend for transforming recipe JSON schemas.
+Recipe Transformer Web Application v5.0
+Flask backend for transforming recipe JSON schemas with intelligent metadata extraction.
+
+Uses RecipeTransformerV5 for automatic, mapping-free transformation.
 """
 
 import json
@@ -10,16 +12,16 @@ from pathlib import Path
 from flask import Flask, render_template, request, jsonify
 from flask_cors import CORS
 
-# Add parent directory to path to import RecipeTransformer
+# Add parent directory to path to import RecipeTransformerV5
 sys.path.insert(0, str(Path(__file__).parent.parent))
-from recipe_transformer import RecipeTransformer
+from recipe_transformer_v5 import RecipeTransformerV5
 
 app = Flask(__name__)
 CORS(app)
 
 # Initialize transformer with schema from parent directory
 SCHEMA_PATH = Path(__file__).parent.parent / "recipe-schema-draft-01.json"
-transformer = RecipeTransformer(schema_path=str(SCHEMA_PATH))
+transformer = RecipeTransformerV5(schema_path=str(SCHEMA_PATH))
 
 
 @app.route('/')
@@ -96,6 +98,9 @@ def validate_schema():
     
     Expects JSON payload with 'input' field.
     Returns validation result.
+    
+    Note: V5 transformer always transforms input, so this endpoint
+    checks if the input is valid JSON that can be processed.
     """
     try:
         data = request.get_json()
@@ -119,19 +124,19 @@ def validate_schema():
                     'error': f'Invalid JSON format: {str(e)}'
                 }), 400
         
-        # Check if it's a dict and validate format
+        # Check if it's a dict (basic validation)
         if isinstance(input_data, dict):
-            is_valid = transformer._is_valid_schema_format(input_data)
+            # V5 can transform any dict, so it's valid
             return jsonify({
                 'success': True,
-                'valid': is_valid,
-                'message': 'Input conforms to recipe-schema-draft-01.json' if is_valid else 'Input does not conform to schema'
+                'valid': True,
+                'message': 'Input is valid JSON and can be transformed'
             })
         else:
             return jsonify({
                 'success': True,
                 'valid': False,
-                'message': 'Input must be a recipe object (dictionary)'
+                'message': 'Input must be a JSON object (dictionary)'
             })
     
     except Exception as e:
@@ -142,13 +147,20 @@ def validate_schema():
 
 
 if __name__ == '__main__':
-    print("=" * 60)
-    print("Recipe Transformer Web Application")
-    print("=" * 60)
+    print("=" * 70)
+    print("Recipe Transformer Web Application v5.0 - Enhanced Edition")
+    print("=" * 70)
     print(f"Schema loaded from: {SCHEMA_PATH}")
-    print("Starting Flask server...")
+    print("Transformer: RecipeTransformerV5 (Intelligent Metadata Extraction)")
+    print("\nFeatures:")
+    print("  ✓ Automatic flow UID extraction")
+    print("  ✓ Intelligent application detection")
+    print("  ✓ Rich description generation")
+    print("  ✓ Smart categorization and keywords")
+    print("  ✓ No mapping files required!")
+    print("\nStarting Flask server...")
     print("Access the application at: http://localhost:5001")
-    print("=" * 60)
+    print("=" * 70)
     app.run(debug=True, host='0.0.0.0', port=5001)
 
 # Made with Bob
