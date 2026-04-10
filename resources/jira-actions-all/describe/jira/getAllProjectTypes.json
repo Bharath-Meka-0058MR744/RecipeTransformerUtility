@@ -1,0 +1,74 @@
+{
+    "id": "fld_common.WmJiraProvider.com_softwareag_cloudstreams_jira_v2_1.operations.triggers:getAllProjectTypes",
+    "name": "getAllProjectTypes",
+    "label": "Get All Project Types",
+    "description": "Returns all supported project types for creation",
+    "inputSchema": {
+        "type": "object",
+        "title": "getAllProjectTypes",
+        "properties": {}
+    },
+    "outputSchema": {
+        "type": "object",
+        "title": "output",
+        "properties": {
+            "allProjectTypeDetail": {
+                "type": "array",
+                "sub_type": "array",
+                "title": "allProjectTypeDetail",
+                "items": {
+                    "type": "object",
+                    "sub_type": "record",
+                    "title": "allProjectTypeDetail",
+                    "properties": {
+                        "key": {
+                            "type": "string",
+                            "sub_type": "string",
+                            "select2": {
+                                "active": true
+                            },
+                            "minLength": 1,
+                            "title": "key"
+                        },
+                        "formattedKey": {
+                            "type": "string",
+                            "sub_type": "string",
+                            "select2": {
+                                "active": true
+                            },
+                            "minLength": 1,
+                            "title": "formattedKey"
+                        },
+                        "descriptionI18nKey": {
+                            "type": "string",
+                            "sub_type": "string",
+                            "select2": {
+                                "active": true
+                            },
+                            "minLength": 1,
+                            "title": "descriptionI18nKey"
+                        },
+                        "icon": {
+                            "type": "string",
+                            "sub_type": "string",
+                            "select2": {
+                                "active": true
+                            },
+                            "minLength": 1,
+                            "title": "icon"
+                        },
+                        "color": {
+                            "type": "string",
+                            "sub_type": "string",
+                            "select2": {
+                                "active": true
+                            },
+                            "minLength": 1,
+                            "title": "color"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

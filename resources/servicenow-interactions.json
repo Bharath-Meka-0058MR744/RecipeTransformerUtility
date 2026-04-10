@@ -1,0 +1,146 @@
+{
+    "id": "com.softwareag.cloudstreams.servicenow_sandiego",
+    "name": "ServiceNow",
+    "label": "ServiceNow",
+    "description":  "ServiceNow provides service management for a variety of departments in the enterprise including HR, IT, field service, facilities, and more",
+    "actions":[
+        {
+            "id": "fld_common.WmServiceNowProvider.com_softwareag_cloudstreams_servicenow_sandiego.operations.actions:createTasks",
+            "name": "createTasks",
+            "label": "Create Tasks",
+            "description": "Creates multiple new records in the Task table."
+        },
+        {
+            "id": "fld_common.WmServiceNowProvider.com_softwareag_cloudstreams_servicenow_sandiego.operations.actions:createProblem",
+            "name": "createProblem",
+            "label": "Create Problem",
+            "description": "Creates multiple new records in the Problem table."
+        },
+        {
+            "id": "fld_common.WmServiceNowProvider.com_softwareag_cloudstreams_servicenow_sandiego.operations.actions:modifyIncidents",
+            "name": "modifyIncidents",
+            "label": "Modify Incidents",
+            "description": "Modifies existing records in the Incident table, identified by the mandatory sys_id field."
+        },
+        {
+            "id": "fld_common.WmServiceNowProvider.com_softwareag_cloudstreams_servicenow_sandiego.operations.actions:modifyTasks",
+            "name": "modifyTasks",
+            "label": "Modify Tasks",
+            "description": "Modifies existing records in the Task table, identified by the mandatory sys_id field."
+        },
+        {
+            "id": "fld_common.WmServiceNowProvider.com_softwareag_cloudstreams_servicenow_sandiego.operations.actions:modifyChangeRequest",
+            "name": "createEmail",
+            "label": "Create Email",
+            "description": "Creates multiple new records in the Change Request table."
+        },
+        {
+            "id": "fld_common.WmServiceNowProvider.com_softwareag_cloudstreams_servicenow_sandiego.operations.actions:createEmail",
+            "name": "modifyChangeRequest",
+            "label": "Modify Change Request",
+            "description": "Modifies existing records in the Change Request table, identified by the mandatory sys_id field."
+        },
+        {
+            "id": "fld_common.WmServiceNowProvider.com_softwareag_cloudstreams_servicenow_sandiego.operations.actions:modifyProblems",
+            "name": "modifyProblems",
+            "label": "Modify Problems",
+            "description": "Modifies existing records in the Problem table, identified by the mandatory sys_id field."
+        },
+        {
+            "id": "fld_common.WmServiceNowProvider.com_softwareag_cloudstreams_servicenow_sandiego.operations.actions:deleteRecord",
+            "name": "deleteRecord",
+            "label": "Delete Record",
+            "description": "Deletes the specified record from the specified table"
+        },
+        {
+            "id": "fld_common.WmServiceNowProvider.com_softwareag_cloudstreams_servicenow_sandiego.operations.actions:updateIncidents",
+            "name": "updateIncidents",
+            "label": "Update Incidents",
+            "description": "Updates existing records in the Incident table, identified by the mandatory sys_id field."
+        },
+        {
+            "id": "fld_common.WmServiceNowProvider.com_softwareag_cloudstreams_servicenow_sandiego.operations.actions:createIncidents",
+            "name": "createIncidents",
+            "label": "Create Incidents",
+            "description": "Creates multiple new records in the Incident table."
+        },
+        {
+            "id": "fld_common.WmServiceNowProvider.com_softwareag_cloudstreams_servicenow_sandiego.operations.actions:updateChangeRequest",
+            "name": "updateChangeRequest",
+            "label": "Update Change Request",
+            "description": "Updates existing records in the Change Request table, identified by the mandatory sys_id field."
+        },
+        {
+            "id": "fld_common.WmServiceNowProvider.com_softwareag_cloudstreams_servicenow_sandiego.operations.actions:createChangeRequest",
+            "name": "createChangeRequest",
+            "label": "Create Change Request",
+            "description": "Creates multiple new records in the Change Request table."
+        },
+        {
+            "id": "fld_common.WmServiceNowProvider.com_softwareag_cloudstreams_servicenow_sandiego.operations.actions:updateProblems",
+            "name": "updateProblems",
+            "label": "Update Problems",
+            "description": "Updates existing records in the Problem table, identified by the mandatory sys_id field."
+        },
+        {
+            "id": "fld_common.WmServiceNowProvider.com_softwareag_cloudstreams_servicenow_sandiego.operations.actions:updateTasks",
+            "name": "updateTasks",
+            "label": "Update Tasks",
+            "description": "Updates existing records in the Task table, identified by the mandatory sys_id field."
+        },
+        {
+            "id": "fld_common.WmServiceNowProvider.com_softwareag_cloudstreams_servicenow_sandiego.operations.triggers:listIncidents",
+            "name": "listIncidents",
+            "label": "List Incidents",
+            "description": "Retrieves multiple records from the Incident table with proper pagination information."
+        },
+        {
+            "id": "fld_common.WmServiceNowProvider.com_softwareag_cloudstreams_servicenow_sandiego.operations.triggers:getProblems",
+            "name": "getProblems",
+            "label": "Get Problems",
+            "description": "Get a single record from the Problem table by sys_id and return the record and its fields."
+        },
+        {
+            "id": "fld_common.WmServiceNowProvider.com_softwareag_cloudstreams_servicenow_sandiego.operations.triggers:listProblems",
+            "name": "listProblems",
+            "label": "List Problems",
+            "description": "Retrieves multiple records from the Problem table with proper pagination information."
+        },
+        {
+            "id": "fld_common.WmServiceNowProvider.com_softwareag_cloudstreams_servicenow_sandiego.operations.triggers:listChangeRequest",
+            "name": "listChangeRequest",
+            "label": "List Change Request",
+            "description": "Retrieves multiple records from the Change Request table with proper pagination information."
+        },
+        {
+            "id": "fld_common.WmServiceNowProvider.com_softwareag_cloudstreams_servicenow_sandiego.operations.triggers:getTasks",
+            "name": "getTasks",
+            "label": "Get Tasks",
+            "description": "Get a single record from the Task table by sys_id and return the record and its fields."
+        },
+        {
+            "id": "fld_common.WmServiceNowProvider.com_softwareag_cloudstreams_servicenow_sandiego.operations.triggers:listTasks",
+            "name": "listTasks",
+            "label": "List Tasks",
+            "description": "Retrieves multiple records from the Task table with proper pagination information."
+        },
+        {
+            "id": "fld_common.WmServiceNowProvider.com_softwareag_cloudstreams_servicenow_sandiego.operations.triggers:getEmail",
+            "name": "getEmail",
+            "label": "Get Email",
+            "description": "Get an email"
+        },
+        {
+            "id": "fld_common.WmServiceNowProvider.com_softwareag_cloudstreams_servicenow_sandiego.operations.triggers:getChangeRequest",
+            "name": "getChangeRequest",
+            "label": "Get Change Request",
+            "description": "Get a single record from the Change Request table by sys_id and return the record and its fields."
+        },
+        {
+            "id": "fld_common.WmServiceNowProvider.com_softwareag_cloudstreams_servicenow_sandiego.operations.triggers:getIncidents",
+            "name": "getIncidents",
+            "label": "Get Incidents",
+            "description": "Get a single record from the Incident table by sys_id and return the record and its fields."
+        }
+    ]
+}

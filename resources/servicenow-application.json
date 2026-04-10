@@ -1,0 +1,27 @@
+{
+    "id": "com.softwareag.cloudstreams.servicenow_sandiego",
+    "name": "ServiceNow",
+    "label": "ServiceNow",
+    "description": "ServiceNow provides service management for a variety of departments in the enterprise including HR, IT, field service, facilities, and more",
+    "version": "San Diego",
+    "icon": "servicenow-icon",
+    "tags": {
+        "categories": [
+            "Business Operations",
+            "Customer Support"
+        ]
+    },
+    "capabilities": {
+        "auths": [
+            {
+                "name": "credentials",
+                "label": "Credentials",
+                "type": "credentials"
+            }
+        ],
+        "interactionTypes": [
+            "actions",
+            "triggers"
+        ]
+    }
+}

@@ -1,0 +1,27 @@
+{
+    "id": "com.softwareag.cloudstreams.jira_v2.1",
+    "name": "atlassianJira",
+    "label": "Atlassian Jira",
+    "description": "JIRA is a issue tracking product, developed by Atlassian. It provides bug tracking, issue tracking, and project management functions.",
+    "version": "2.1",
+    "icon": "atlassian-jira-icon",
+    "tags": {
+        "categories": [
+            "Collaboration",
+            "Productivity"
+        ]
+    },
+    "capabilities": {
+        "auths": [
+            {
+                "name": "credentials",
+                "label": "Credentials",
+                "type": "credentials"
+            }
+        ],
+        "interactionTypes": [
+            "actions",
+            "triggers"
+        ]
+    }
+}

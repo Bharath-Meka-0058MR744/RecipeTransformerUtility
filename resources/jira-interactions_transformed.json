@@ -1,0 +1,346 @@
+{
+  "id": "bd681b7b-9d10-4ddd-8673-5a6d87113425",
+  "name": "atlassian-jira",
+  "label": "Atlassian Jira",
+  "description": {
+    "overview": "JIRA is a issue tracking product, developed by Atlassian. It provides bug tracking, issue tracking, and project management functions.",
+    "details": "This recipe provides integration capabilities for Atlassian Jira."
+  },
+  "version": "1.0.0",
+  "tags": {
+    "category": [
+      "Integration"
+    ],
+    "availableOn": [
+      "workflow"
+    ],
+    "keyword": []
+  },
+  "provenance": {
+    "status": "draft",
+    "visibility": "private",
+    "createdAt": "2026-04-08T05:51:19.046026Z",
+    "updatedAt": "2026-04-08T05:51:19.046026Z",
+    "publishedAt": null,
+    "owner": {
+      "userId": "system"
+    }
+  },
+  "dependencies": {
+    "applications": [
+      {
+        "id": "custom-integration",
+        "label": "Custom Integration",
+        "icon": "puzzle"
+      }
+    ],
+    "interactions": [
+      {
+        "type": "action",
+        "applicationId": "com.softwareag.cloudstreams.jira_v2.1",
+        "id": "getProjectDetails",
+        "label": "Get Project Details",
+        "authType": "credentials"
+      },
+      {
+        "type": "action",
+        "applicationId": "com.softwareag.cloudstreams.jira_v2.1",
+        "id": "getAllProjectCategories",
+        "label": "Get All Project Categories",
+        "authType": "credentials"
+      },
+      {
+        "type": "action",
+        "applicationId": "com.softwareag.cloudstreams.jira_v2.1",
+        "id": "updateProject",
+        "label": "Update Project",
+        "authType": "credentials"
+      },
+      {
+        "type": "action",
+        "applicationId": "com.softwareag.cloudstreams.jira_v2.1",
+        "id": "createProjectCategory",
+        "label": "Create Project Category",
+        "authType": "credentials"
+      },
+      {
+        "type": "action",
+        "applicationId": "com.softwareag.cloudstreams.jira_v2.1",
+        "id": "createProject",
+        "label": "Create Project",
+        "authType": "credentials"
+      },
+      {
+        "type": "action",
+        "applicationId": "com.softwareag.cloudstreams.jira_v2.1",
+        "id": "getProjectComponents",
+        "label": "Get Project Components",
+        "authType": "credentials"
+      },
+      {
+        "type": "action",
+        "applicationId": "com.softwareag.cloudstreams.jira_v2.1",
+        "id": "createComponent",
+        "label": "Create Component",
+        "authType": "credentials"
+      },
+      {
+        "type": "action",
+        "applicationId": "com.softwareag.cloudstreams.jira_v2.1",
+        "id": "deleteProject",
+        "label": "Delete Project",
+        "authType": "credentials"
+      },
+      {
+        "type": "action",
+        "applicationId": "com.softwareag.cloudstreams.jira_v2.1",
+        "id": "getAllProjectTypes",
+        "label": "Get All Project Types",
+        "authType": "credentials"
+      },
+      {
+        "type": "trigger",
+        "applicationId": "com.softwareag.cloudstreams.jira_v2.1",
+        "id": "newIssue",
+        "label": "New Issue",
+        "triggerType": "polling",
+        "authType": "credentials"
+      },
+      {
+        "type": "trigger",
+        "applicationId": "com.softwareag.cloudstreams.jira_v2.1",
+        "id": "issueUpdated",
+        "label": "Issue Updated",
+        "triggerType": "polling",
+        "authType": "credentials"
+      },
+      {
+        "type": "trigger",
+        "applicationId": "com.softwareag.cloudstreams.jira_v2.1",
+        "id": "newIssueInBoard",
+        "label": "New Issue In Board",
+        "triggerType": "polling",
+        "authType": "credentials"
+      },
+      {
+        "type": "trigger",
+        "applicationId": "com.softwareag.cloudstreams.jira_v2.1",
+        "id": "issueUpdatedInBoard",
+        "label": "Issue Updated In Board",
+        "triggerType": "polling",
+        "authType": "credentials"
+      },
+      {
+        "type": "trigger",
+        "applicationId": "com.softwareag.cloudstreams.jira_v2.1",
+        "id": "newIssueInSprint",
+        "label": "New Issue In Sprint",
+        "triggerType": "polling",
+        "authType": "credentials"
+      },
+      {
+        "type": "trigger",
+        "applicationId": "com.softwareag.cloudstreams.jira_v2.1",
+        "id": "issueUpdatedInSprint",
+        "label": "Issue Updated In Sprint",
+        "triggerType": "polling",
+        "authType": "credentials"
+      },
+      {
+        "type": "trigger",
+        "applicationId": "com.softwareag.cloudstreams.jira_v2.1",
+        "id": "issueDeleted",
+        "label": "Issue Deleted",
+        "triggerType": "polling",
+        "authType": "credentials"
+      },
+      {
+        "type": "trigger",
+        "applicationId": "com.softwareag.cloudstreams.jira_v2.1",
+        "id": "newComment",
+        "label": "New Comment",
+        "triggerType": "polling",
+        "authType": "credentials"
+      },
+      {
+        "type": "trigger",
+        "applicationId": "com.softwareag.cloudstreams.jira_v2.1",
+        "id": "commentUpdated",
+        "label": "Comment Updated",
+        "triggerType": "polling",
+        "authType": "credentials"
+      },
+      {
+        "type": "trigger",
+        "applicationId": "com.softwareag.cloudstreams.jira_v2.1",
+        "id": "commentDeleted",
+        "label": "Comment Deleted",
+        "triggerType": "polling",
+        "authType": "credentials"
+      },
+      {
+        "type": "trigger",
+        "applicationId": "com.softwareag.cloudstreams.jira_v2.1",
+        "id": "newBoard",
+        "label": "New Board",
+        "triggerType": "polling",
+        "authType": "credentials"
+      },
+      {
+        "type": "trigger",
+        "applicationId": "com.softwareag.cloudstreams.jira_v2.1",
+        "id": "boardUpdated",
+        "label": "Board Updated",
+        "triggerType": "polling",
+        "authType": "credentials"
+      },
+      {
+        "type": "trigger",
+        "applicationId": "com.softwareag.cloudstreams.jira_v2.1",
+        "id": "boardConfigurationChanged",
+        "label": "Board Configuration Changed",
+        "triggerType": "polling",
+        "authType": "credentials"
+      },
+      {
+        "type": "trigger",
+        "applicationId": "com.softwareag.cloudstreams.jira_v2.1",
+        "id": "boardDeleted",
+        "label": "Board Deleted",
+        "triggerType": "polling",
+        "authType": "credentials"
+      },
+      {
+        "type": "trigger",
+        "applicationId": "com.softwareag.cloudstreams.jira_v2.1",
+        "id": "newSprint",
+        "label": "New Sprint",
+        "triggerType": "polling",
+        "authType": "credentials"
+      },
+      {
+        "type": "trigger",
+        "applicationId": "com.softwareag.cloudstreams.jira_v2.1",
+        "id": "sprintUpdated",
+        "label": "Sprint Updated",
+        "triggerType": "polling",
+        "authType": "credentials"
+      },
+      {
+        "type": "trigger",
+        "applicationId": "com.softwareag.cloudstreams.jira_v2.1",
+        "id": "sprintDeleted",
+        "label": "Sprint Deleted",
+        "triggerType": "polling",
+        "authType": "credentials"
+      },
+      {
+        "type": "trigger",
+        "applicationId": "com.softwareag.cloudstreams.jira_v2.1",
+        "id": "newUser",
+        "label": "New User",
+        "triggerType": "polling",
+        "authType": "credentials"
+      },
+      {
+        "type": "trigger",
+        "applicationId": "com.softwareag.cloudstreams.jira_v2.1",
+        "id": "userUpdated",
+        "label": "User Updated",
+        "triggerType": "polling",
+        "authType": "credentials"
+      },
+      {
+        "type": "trigger",
+        "applicationId": "com.softwareag.cloudstreams.jira_v2.1",
+        "id": "userDeleted",
+        "label": "User Deleted",
+        "triggerType": "polling",
+        "authType": "credentials"
+      },
+      {
+        "type": "trigger",
+        "applicationId": "com.softwareag.cloudstreams.jira_v2.1",
+        "id": "newProject",
+        "label": "New Project",
+        "triggerType": "polling",
+        "authType": "credentials"
+      },
+      {
+        "type": "trigger",
+        "applicationId": "com.softwareag.cloudstreams.jira_v2.1",
+        "id": "projectUpdated",
+        "label": "Project Updated",
+        "triggerType": "polling",
+        "authType": "credentials"
+      },
+      {
+        "type": "trigger",
+        "applicationId": "com.softwareag.cloudstreams.jira_v2.1",
+        "id": "projectDeleted",
+        "label": "Project Deleted",
+        "triggerType": "polling",
+        "authType": "credentials"
+      },
+      {
+        "type": "trigger",
+        "applicationId": "com.softwareag.cloudstreams.jira_v2.1",
+        "id": "NewIssueLink",
+        "label": "New Issuelink",
+        "triggerType": "polling",
+        "authType": "credentials"
+      },
+      {
+        "type": "trigger",
+        "applicationId": "com.softwareag.cloudstreams.jira_v2.1",
+        "id": "issueLinkDeleted",
+        "label": "Issuelink Deleted",
+        "triggerType": "polling",
+        "authType": "credentials"
+      },
+      {
+        "type": "trigger",
+        "applicationId": "com.softwareag.cloudstreams.jira_v2.1",
+        "id": "New Version",
+        "label": "New Version",
+        "triggerType": "polling",
+        "authType": "credentials"
+      },
+      {
+        "type": "trigger",
+        "applicationId": "com.softwareag.cloudstreams.jira_v2.1",
+        "id": "versionUpdated",
+        "label": "Version Updated",
+        "triggerType": "polling",
+        "authType": "credentials"
+      },
+      {
+        "type": "trigger",
+        "applicationId": "com.softwareag.cloudstreams.jira_v2.1",
+        "id": "versionDeleted",
+        "label": "Version Deleted",
+        "triggerType": "polling",
+        "authType": "credentials"
+      },
+      {
+        "type": "trigger",
+        "applicationId": "com.softwareag.cloudstreams.jira_v2.1",
+        "id": "newAttachment",
+        "label": "New Attachment",
+        "triggerType": "polling",
+        "authType": "credentials"
+      },
+      {
+        "type": "trigger",
+        "applicationId": "com.softwareag.cloudstreams.jira_v2.1",
+        "id": "attachmentDeleted",
+        "label": "Attachment Deleted",
+        "triggerType": "polling",
+        "authType": "credentials"
+      }
+    ]
+  },
+  "compatibility": {},
+  "configurations": {},
+  "usageStatistics": {}
+}

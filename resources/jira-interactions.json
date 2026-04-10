@@ -1,0 +1,244 @@
+{
+    "id": "com.softwareag.cloudstreams.jira_v2.1",
+    "name": "atlassian-jira",
+    "label": "Atlassian Jira",
+    "description": "JIRA is a issue tracking product, developed by Atlassian. It provides bug tracking, issue tracking, and project management functions.",
+    "actions": [
+        {
+            "id": "fld_common.WmJiraProvider.com_softwareag_cloudstreams_jira_v2_1.operations.triggers:getProjectDetails",
+            "name": "getProjectDetails",
+            "label": "Get Project Details",
+            "description": ""
+        },
+        {
+            "id": "fld_common.WmJiraProvider.com_softwareag_cloudstreams_jira_v2_1.operations.triggers:getAllProjectCategories",
+            "name": "getAllProjectCategories",
+            "label": "Get All Project Categories",
+            "description": ""
+        },
+        {
+            "id": "fld_common.WmJiraProvider.com_softwareag_cloudstreams_jira_v2_1.operations.actions:updateProject",
+            "name": "updateProject",
+            "label": "Update Project",
+            "description": ""
+        },
+        {
+            "id": "fld_common.WmJiraProvider.com_softwareag_cloudstreams_jira_v2_1.operations.actions:createProjectCategory",
+            "name": "createProjectCategory",
+            "label": "Create Project Category",
+            "description": ""
+        },
+        {
+            "id": "fld_common.WmJiraProvider.com_softwareag_cloudstreams_jira_v2_1.operations.actions:createProject",
+            "name": "createProject",
+            "label": "Create Project",
+            "description": ""
+        },
+        {
+            "id": "fld_common.WmJiraProvider.com_softwareag_cloudstreams_jira_v2_1.operations.triggers:getProjectComponents",
+            "name": "getProjectComponents",
+            "label": "Get Project Components",
+            "description": ""
+        },
+        {
+            "id": "fld_common.WmJiraProvider.com_softwareag_cloudstreams_jira_v2_1.operations.actions:createComponent",
+            "name": "createComponent",
+            "label": "Create Component",
+            "description": ""
+        },
+        {
+            "id": "fld_common.WmJiraProvider.com_softwareag_cloudstreams_jira_v2_1.operations.actions:deleteProject",
+            "name": "deleteProject",
+            "label": "Delete Project",
+            "description": ""
+        },
+        {
+            "id": "fld_common.WmJiraProvider.com_softwareag_cloudstreams_jira_v2_1.operations.triggers:getAllProjectTypes",
+            "name": "getAllProjectTypes",
+            "label": "Get All Project Types",
+            "description": ""
+        }
+    ],
+    "triggers": [
+        {
+            "id": "",
+            "name": "newIssue",
+            "label": "New Issue",
+            "description": "Triggered when a new issue is created"
+        },
+        {
+            "id": "",
+            "name": "issueUpdated",
+            "label": "Issue Updated",
+            "description": "Triggered when an existing issue is updated"
+        },
+        {
+            "id": "",
+            "name": "newIssueInBoard",
+            "label": "New Issue In Board",
+            "description": "Triggered when a new issue is added to a board"
+        },
+        {
+            "id": "",
+            "name": "issueUpdatedInBoard",
+            "label": "Issue Updated In Board",
+            "description": "Triggered when an issue in a board is updated"
+        },
+        {
+            "id": "",
+            "name": "newIssueInSprint",
+            "label": "New Issue In Sprint",
+            "description": "Triggered when a new issue is added to a sprint"
+        },
+        {
+            "id": "",
+            "name": "issueUpdatedInSprint",
+            "label": "Issue Updated In Sprint",
+            "description": "Triggered when an issue in a sprint is updated"
+        },
+        {
+            "id": "",
+            "name": "issueDeleted",
+            "label": "Issue Deleted",
+            "description": "Triggered when an issue is deleted"
+        },
+        {
+            "id": "",
+            "name": "newComment",
+            "label": "New Comment",
+            "description": "Triggered when a new comment is added to an issue"
+        },
+        {
+            "id": "",
+            "name": "commentUpdated",
+            "label": "Comment Updated",
+            "description": "Triggered when an existing comment is updated"
+        },
+        {
+            "id": "",
+            "name": "commentDeleted",
+            "label": "Comment Deleted",
+            "description": "Triggered when a comment is deleted"
+        },
+        {
+            "id": "",
+            "name": "newBoard",
+            "label": "New Board",
+            "description": "Triggered when a new board is created"
+        },
+        {
+            "id": "",
+            "name": "boardUpdated",
+            "label": "Board Updated",
+            "description": "Triggered when an existing board is updated"
+        },
+        {
+            "id": "",
+            "name": "boardConfigurationChanged",
+            "label": "Board Configuration Changed",
+            "description": "Triggered when the configuration of a board is changed"
+        },
+        {
+            "id": "",
+            "name": "boardDeleted",
+            "label": "Board Deleted",
+            "description": "Triggered when a board is deleted"
+        },
+        {
+            "id": "",
+            "name": "newSprint",
+            "label": "New Sprint",
+            "description": "Triggered when a new sprint is created"
+        },
+        {
+            "id": "",
+            "name": "sprintUpdated",
+            "label": "Sprint Updated",
+            "description": "Triggered when an existing sprint is updated"
+        },
+        {
+            "id": "",
+            "name": "sprintDeleted",
+            "label": "Sprint Deleted",
+            "description": "Triggered when a sprint is deleted"
+        },
+        {
+            "id": "",
+            "name": "newUser",
+            "label": "New User",
+            "description": "Triggered when a new user is created"
+        },
+        {
+            "id": "",
+            "name": "userUpdated",
+            "label": "User Updated",
+            "description": "Triggered when an existing user is updated"
+        },
+        {
+            "id": "",
+            "name": "userDeleted",
+            "label": "User Deleted",
+            "description": "Triggered when a user is deleted"
+        },
+        {
+            "id": "",
+            "name": "newProject",
+            "label": "New Project",
+            "description": "Triggered when a new project is created"
+        },
+        {
+            "id": "",
+            "name": "projectUpdated",
+            "label": "Project Updated",
+            "description": "Triggered when an existing project is updated"
+        },
+        {
+            "id": "",
+            "name": "projectDeleted",
+            "label": "Project Deleted",
+            "description": "Triggered when a project is deleted"
+        },
+        {
+            "id": "",
+            "name": "NewIssueLink",
+            "label": "New Issuelink",
+            "description": "Triggered when a new issue link is created"
+        },
+        {
+            "id": "",
+            "name": "issueLinkDeleted",
+            "label": "Issuelink Deleted",
+            "description": "Triggered when an issue link is deleted"
+        },
+        {
+            "id": "",
+            "name": "New Version",
+            "label": "New Version",
+            "description": "Triggered when a new version is created"
+        },
+        {
+            "id": "",
+            "name": "versionUpdated",
+            "label": "Version Updated",
+            "description": "Triggered when an existing version is updated"
+        },
+        {
+            "id": "",
+            "name": "versionDeleted",
+            "label": "Version Deleted",
+            "description": "Triggered when a version is deleted"
+        },
+        {
+            "id": "",
+            "name": "newAttachment",
+            "label": "New Attachment",
+            "description": "Triggered when a new attachment is added to an issue"
+        },
+        {
+            "id": "",
+            "name": "attachmentDeleted",
+            "label": "Attachment Deleted",
+            "description": "Triggered when an attachment is deleted from an issue"
+        }
+    ]
+}

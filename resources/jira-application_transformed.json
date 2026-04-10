@@ -1,0 +1,42 @@
+{
+  "id": "c6ea5726-4107-47df-a85d-06675981e374",
+  "name": "atlassianjira",
+  "label": "Atlassian Jira",
+  "description": {
+    "overview": "JIRA is a issue tracking product, developed by Atlassian. It provides bug tracking, issue tracking, and project management functions.",
+    "details": "This recipe provides integration capabilities for Atlassian Jira."
+  },
+  "version": "2.1.0",
+  "tags": {
+    "category": [
+      "Collaboration",
+      "Productivity"
+    ],
+    "availableOn": [
+      "workflow"
+    ],
+    "keyword": []
+  },
+  "provenance": {
+    "status": "draft",
+    "visibility": "private",
+    "createdAt": "2026-04-08T05:51:09.569049Z",
+    "updatedAt": "2026-04-08T05:51:09.569049Z",
+    "publishedAt": null,
+    "owner": {
+      "userId": "system"
+    }
+  },
+  "dependencies": {
+    "applications": [
+      {
+        "id": "com.softwareag.cloudstreams.jira_v2.1",
+        "label": "Atlassian Jira",
+        "icon": "atlassian-jira-icon"
+      }
+    ]
+  },
+  "compatibility": {},
+  "configurations": {},
+  "usageStatistics": {}
+}

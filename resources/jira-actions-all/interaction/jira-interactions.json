@@ -1,0 +1,80 @@
+{
+    "id": "com.softwareag.cloudstreams.jira_v2.1",
+    "name": "atlassian-jira",
+    "label": "Atlassian Jira",
+    "description":  "JIRA is a issue tracking product, developed by Atlassian. It provides bug tracking, issue tracking, and project management functions.",
+    "actions":[
+		{
+			"id": "fld_common.WmJiraProvider.com_softwareag_cloudstreams_jira_v2_1.operations.triggers:getProjectDetails",
+			"name": "getProjectDetails",
+			"label": "Get Project Details",
+			"description": "",
+			"type": "action",
+			"auths": ["sagcloud"]
+		},
+		{
+			"id": "fld_common.WmJiraProvider.com_softwareag_cloudstreams_jira_v2_1.operations.triggers:getAllProjectCategories",
+			"name": "getAllProjectCategories",
+			"label": "Get All Project Categories",
+			"description": "",
+			"type": "action",
+			"auths": ["sagcloud"]
+		},
+		{
+			"id": "fld_common.WmJiraProvider.com_softwareag_cloudstreams_jira_v2_1.operations.actions:updateProject",
+			"name": "updateProject",
+			"label": "Update Project",
+			"description": "",
+			"type": "action",
+			"auths": ["sagcloud"]
+		},
+		{
+			"id": "fld_common.WmJiraProvider.com_softwareag_cloudstreams_jira_v2_1.operations.actions:createProjectCategory",
+			"name": "createProjectCategory",
+			"label": "Create Project Category",
+			"description": "",
+			"type": "action",
+			"auths": ["sagcloud"]
+		},
+		{
+			"id": "fld_common.WmJiraProvider.com_softwareag_cloudstreams_jira_v2_1.operations.actions:createProject",
+			"name": "createProject",
+			"label": "Create Project",
+			"description": "",
+			"type": "action",
+			"auths": ["sagcloud"]
+		},
+		{
+			"id": "fld_common.WmJiraProvider.com_softwareag_cloudstreams_jira_v2_1.operations.triggers:getProjectComponents",
+			"name": "getProjectComponents",
+			"label": "Get Project Components",
+			"description": "",
+			"type": "action",
+			"auths": ["sagcloud"]
+		},
+		{
+			"id": "fld_common.WmJiraProvider.com_softwareag_cloudstreams_jira_v2_1.operations.actions:createComponent",
+			"name": "createComponent",
+			"label": "Create Component",
+			"description": "",
+			"type": "action",
+			"auths": ["sagcloud"]
+		},
+		{
+			"id": "fld_common.WmJiraProvider.com_softwareag_cloudstreams_jira_v2_1.operations.actions:deleteProject",
+			"name": "deleteProject",
+			"label": "Delete Project",
+			"description": "",
+			"type": "action",
+			"auths": ["sagcloud"]
+		},
+		{
+			"id": "fld_common.WmJiraProvider.com_softwareag_cloudstreams_jira_v2_1.operations.triggers:getAllProjectTypes",
+			"name": "getAllProjectTypes",
+			"label": "Get All Project Types",
+			"description": "",
+			"type": "action",
+			"auths": ["sagcloud"]
+		}
+	]
+}

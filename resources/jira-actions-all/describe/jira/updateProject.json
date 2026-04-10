@@ -1,0 +1,1808 @@
+{
+    "id": "fld_common.WmJiraProvider.com_softwareag_cloudstreams_jira_v2_1.operations.actions:updateProject",
+    "name": "updateProject",
+    "label": "Update Project",
+    "description": "Modifies project details such as name, description, or category",
+    "inputSchema": {
+        "type": "object",
+        "title": "updateProject",
+        "properties": {
+            "projectIdOrKey": {
+                "type": "string",
+                "sub_type": "string",
+                "select2": {
+                    "active": true
+                },
+                "minLength": 1,
+                "title": "projectIdOrKey"
+            },
+            "projectName": {
+                "type": "string",
+                "sub_type": "string",
+                "select2": {
+                    "active": true
+                },
+                "title": "projectName"
+            },
+            "projectTypeKey": {
+                "type": "string",
+                "sub_type": "string",
+                "enum": [
+                    "",
+                    "business",
+                    "service_desk"
+                ],
+                "enumNames": [
+                    "Select options",
+                    "business",
+                    "service_desk"
+                ],
+                "select2": {
+                    "active": true
+                },
+                "title": "projectTypeKey"
+            },
+            "projectTemplateKey": {
+                "type": "string",
+                "sub_type": "string",
+                "select2": {
+                    "active": true
+                },
+                "title": "projectTemplateKey"
+            },
+            "description": {
+                "type": "string",
+                "sub_type": "string",
+                "select2": {
+                    "active": true
+                },
+                "title": "description"
+            },
+            "leadAccountId": {
+                "type": "string",
+                "sub_type": "string",
+                "select2": {
+                    "active": true
+                },
+                "title": "leadAccountId"
+            },
+            "url": {
+                "type": "string",
+                "sub_type": "string",
+                "select2": {
+                    "active": true
+                },
+                "title": "url"
+            },
+            "assigneeType": {
+                "type": "string",
+                "sub_type": "string",
+                "enum": [
+                    "",
+                    "PROJECT_LEAD",
+                    "UNASSIGNED"
+                ],
+                "enumNames": [
+                    "Select options",
+                    "PROJECT_LEAD",
+                    "UNASSIGNED"
+                ],
+                "select2": {
+                    "active": true
+                },
+                "title": "assigneeType"
+            },
+            "avatarId": {
+                "type": "string",
+                "sub_type": "string",
+                "select2": {
+                    "active": true
+                },
+                "title": "avatarId"
+            },
+            "issueSecurityScheme": {
+                "type": "string",
+                "sub_type": "string",
+                "select2": {
+                    "active": true
+                },
+                "title": "issueSecurityScheme"
+            },
+            "permissionScheme": {
+                "type": "string",
+                "sub_type": "string",
+                "select2": {
+                    "active": true
+                },
+                "title": "permissionScheme"
+            },
+            "notificationScheme": {
+                "type": "string",
+                "sub_type": "string",
+                "select2": {
+                    "active": true
+                },
+                "title": "notificationScheme"
+            },
+            "categoryId": {
+                "type": "string",
+                "sub_type": "string",
+                "select2": {
+                    "active": true
+                },
+                "title": "categoryId"
+            },
+            "expand": {
+                "type": "string",
+                "sub_type": "string",
+                "select2": {
+                    "active": true
+                },
+                "title": "expand"
+            }
+        }
+    },
+    "outputSchema": {
+        "type": "object",
+        "title": "output",
+        "properties": {
+            "expand": {
+                "type": "string",
+                "sub_type": "string",
+                "select2": {
+                    "active": true
+                },
+                "minLength": 1,
+                "title": "expand"
+            },
+            "self": {
+                "type": "string",
+                "sub_type": "string",
+                "select2": {
+                    "active": true
+                },
+                "minLength": 1,
+                "title": "self"
+            },
+            "projectId": {
+                "type": "string",
+                "sub_type": "string",
+                "select2": {
+                    "active": true
+                },
+                "minLength": 1,
+                "title": "projectId"
+            },
+            "key": {
+                "type": "string",
+                "sub_type": "string",
+                "select2": {
+                    "active": true
+                },
+                "minLength": 1,
+                "title": "key"
+            },
+            "description": {
+                "type": "string",
+                "sub_type": "string",
+                "select2": {
+                    "active": true
+                },
+                "minLength": 1,
+                "title": "description"
+            },
+            "lead": {
+                "type": "object",
+                "sub_type": "record",
+                "title": "lead",
+                "properties": {
+                    "self": {
+                        "type": "string",
+                        "sub_type": "string",
+                        "select2": {
+                            "active": true
+                        },
+                        "minLength": 1,
+                        "title": "self"
+                    },
+                    "accountId": {
+                        "type": "string",
+                        "sub_type": "string",
+                        "select2": {
+                            "active": true
+                        },
+                        "minLength": 1,
+                        "title": "accountId"
+                    },
+                    "accountType": {
+                        "type": "string",
+                        "sub_type": "string",
+                        "select2": {
+                            "active": true
+                        },
+                        "minLength": 1,
+                        "title": "accountType"
+                    },
+                    "emailAddress": {
+                        "type": "string",
+                        "sub_type": "string",
+                        "select2": {
+                            "active": true
+                        },
+                        "minLength": 1,
+                        "title": "emailAddress"
+                    },
+                    "avatarUrls": {
+                        "type": "object",
+                        "sub_type": "record",
+                        "title": "avatarUrls",
+                        "properties": {
+                            "48x48": {
+                                "type": "string",
+                                "sub_type": "string",
+                                "select2": {
+                                    "active": true
+                                },
+                                "minLength": 1,
+                                "title": "48x48"
+                            },
+                            "24x24": {
+                                "type": "string",
+                                "sub_type": "string",
+                                "select2": {
+                                    "active": true
+                                },
+                                "minLength": 1,
+                                "title": "24x24"
+                            },
+                            "16x16": {
+                                "type": "string",
+                                "sub_type": "string",
+                                "select2": {
+                                    "active": true
+                                },
+                                "minLength": 1,
+                                "title": "16x16"
+                            },
+                            "32x32": {
+                                "type": "string",
+                                "sub_type": "string",
+                                "select2": {
+                                    "active": true
+                                },
+                                "minLength": 1,
+                                "title": "32x32"
+                            }
+                        },
+                        "minLength": 1
+                    },
+                    "displayName": {
+                        "type": "string",
+                        "sub_type": "string",
+                        "select2": {
+                            "active": true
+                        },
+                        "minLength": 1,
+                        "title": "displayName"
+                    },
+                    "active": {
+                        "type": "string",
+                        "sub_type": "string",
+                        "select2": {
+                            "active": true
+                        },
+                        "minLength": 1,
+                        "title": "active"
+                    },
+                    "timeZone": {
+                        "type": "string",
+                        "sub_type": "string",
+                        "select2": {
+                            "active": true
+                        },
+                        "minLength": 1,
+                        "title": "timeZone"
+                    },
+                    "locale": {
+                        "type": "string",
+                        "sub_type": "string",
+                        "select2": {
+                            "active": true
+                        },
+                        "minLength": 1,
+                        "title": "locale"
+                    },
+                    "groups": {
+                        "type": "object",
+                        "sub_type": "record",
+                        "title": "groups",
+                        "properties": {
+                            "size": {
+                                "type": "string",
+                                "sub_type": "string",
+                                "select2": {
+                                    "active": true
+                                },
+                                "minLength": 1,
+                                "title": "size"
+                            },
+                            "max-results": {
+                                "type": "string",
+                                "sub_type": "string",
+                                "select2": {
+                                    "active": true
+                                },
+                                "minLength": 1,
+                                "title": "max-results"
+                            },
+                            "item": {
+                                "type": "array",
+                                "sub_type": "array",
+                                "title": "item",
+                                "items": {
+                                    "type": "object",
+                                    "sub_type": "record",
+                                    "title": "item",
+                                    "properties": {
+                                        "name": {
+                                            "type": "string",
+                                            "sub_type": "string",
+                                            "select2": {
+                                                "active": true
+                                            },
+                                            "minLength": 1,
+                                            "title": "name"
+                                        },
+                                        "self": {
+                                            "type": "string",
+                                            "sub_type": "string",
+                                            "select2": {
+                                                "active": true
+                                            },
+                                            "minLength": 1,
+                                            "title": "self"
+                                        }
+                                    },
+                                    "minLength": 1
+                                },
+                                "minLength": 1
+                            }
+                        },
+                        "minLength": 1
+                    },
+                    "applicationRoles": {
+                        "type": "object",
+                        "sub_type": "record",
+                        "title": "applicationRoles",
+                        "properties": {
+                            "size": {
+                                "type": "string",
+                                "sub_type": "string",
+                                "select2": {
+                                    "active": true
+                                },
+                                "minLength": 1,
+                                "title": "size"
+                            },
+                            "max-results": {
+                                "type": "string",
+                                "sub_type": "string",
+                                "select2": {
+                                    "active": true
+                                },
+                                "minLength": 1,
+                                "title": "max-results"
+                            },
+                            "item": {
+                                "type": "array",
+                                "sub_type": "array",
+                                "title": "item",
+                                "items": {
+                                    "type": "object",
+                                    "sub_type": "record",
+                                    "title": "item",
+                                    "properties": {
+                                        "name": {
+                                            "type": "string",
+                                            "sub_type": "string",
+                                            "select2": {
+                                                "active": true
+                                            },
+                                            "minLength": 1,
+                                            "title": "name"
+                                        },
+                                        "self": {
+                                            "type": "string",
+                                            "sub_type": "string",
+                                            "select2": {
+                                                "active": true
+                                            },
+                                            "minLength": 1,
+                                            "title": "self"
+                                        }
+                                    },
+                                    "minLength": 1
+                                },
+                                "minLength": 1
+                            }
+                        },
+                        "minLength": 1
+                    },
+                    "expand": {
+                        "type": "string",
+                        "sub_type": "string",
+                        "select2": {
+                            "active": true
+                        },
+                        "minLength": 1,
+                        "title": "expand"
+                    }
+                },
+                "minLength": 1
+            },
+            "component": {
+                "type": "array",
+                "sub_type": "array",
+                "title": "component",
+                "items": {
+                    "type": "object",
+                    "sub_type": "record",
+                    "title": "component",
+                    "properties": {
+                        "self": {
+                            "type": "string",
+                            "sub_type": "string",
+                            "select2": {
+                                "active": true
+                            },
+                            "minLength": 1,
+                            "title": "self"
+                        },
+                        "componentId": {
+                            "type": "string",
+                            "sub_type": "string",
+                            "select2": {
+                                "active": true
+                            },
+                            "minLength": 1,
+                            "title": "componentId"
+                        },
+                        "componentName": {
+                            "type": "string",
+                            "sub_type": "string",
+                            "select2": {
+                                "active": true
+                            },
+                            "minLength": 1,
+                            "title": "componentName"
+                        },
+                        "description": {
+                            "type": "string",
+                            "sub_type": "string",
+                            "select2": {
+                                "active": true
+                            },
+                            "minLength": 1,
+                            "title": "description"
+                        },
+                        "lead": {
+                            "type": "object",
+                            "sub_type": "record",
+                            "title": "lead",
+                            "properties": {
+                                "self": {
+                                    "type": "string",
+                                    "sub_type": "string",
+                                    "select2": {
+                                        "active": true
+                                    },
+                                    "minLength": 1,
+                                    "title": "self"
+                                },
+                                "accountId": {
+                                    "type": "string",
+                                    "sub_type": "string",
+                                    "select2": {
+                                        "active": true
+                                    },
+                                    "minLength": 1,
+                                    "title": "accountId"
+                                },
+                                "emailAddress": {
+                                    "type": "string",
+                                    "sub_type": "string",
+                                    "select2": {
+                                        "active": true
+                                    },
+                                    "minLength": 1,
+                                    "title": "emailAddress"
+                                },
+                                "avatarUrls": {
+                                    "type": "object",
+                                    "sub_type": "record",
+                                    "title": "avatarUrls",
+                                    "properties": {
+                                        "48x48": {
+                                            "type": "string",
+                                            "sub_type": "string",
+                                            "select2": {
+                                                "active": true
+                                            },
+                                            "minLength": 1,
+                                            "title": "48x48"
+                                        },
+                                        "24x24": {
+                                            "type": "string",
+                                            "sub_type": "string",
+                                            "select2": {
+                                                "active": true
+                                            },
+                                            "minLength": 1,
+                                            "title": "24x24"
+                                        },
+                                        "16x16": {
+                                            "type": "string",
+                                            "sub_type": "string",
+                                            "select2": {
+                                                "active": true
+                                            },
+                                            "minLength": 1,
+                                            "title": "16x16"
+                                        },
+                                        "32x32": {
+                                            "type": "string",
+                                            "sub_type": "string",
+                                            "select2": {
+                                                "active": true
+                                            },
+                                            "minLength": 1,
+                                            "title": "32x32"
+                                        }
+                                    },
+                                    "minLength": 1
+                                },
+                                "displayName": {
+                                    "type": "string",
+                                    "sub_type": "string",
+                                    "select2": {
+                                        "active": true
+                                    },
+                                    "minLength": 1,
+                                    "title": "displayName"
+                                },
+                                "active": {
+                                    "type": "string",
+                                    "sub_type": "string",
+                                    "select2": {
+                                        "active": true
+                                    },
+                                    "minLength": 1,
+                                    "title": "active"
+                                },
+                                "timeZone": {
+                                    "type": "string",
+                                    "sub_type": "string",
+                                    "select2": {
+                                        "active": true
+                                    },
+                                    "minLength": 1,
+                                    "title": "timeZone"
+                                },
+                                "locale": {
+                                    "type": "string",
+                                    "sub_type": "string",
+                                    "select2": {
+                                        "active": true
+                                    },
+                                    "minLength": 1,
+                                    "title": "locale"
+                                },
+                                "groups": {
+                                    "type": "object",
+                                    "sub_type": "record",
+                                    "title": "groups",
+                                    "properties": {
+                                        "size": {
+                                            "type": "string",
+                                            "sub_type": "string",
+                                            "select2": {
+                                                "active": true
+                                            },
+                                            "minLength": 1,
+                                            "title": "size"
+                                        },
+                                        "max-results": {
+                                            "type": "string",
+                                            "sub_type": "string",
+                                            "select2": {
+                                                "active": true
+                                            },
+                                            "minLength": 1,
+                                            "title": "max-results"
+                                        },
+                                        "item": {
+                                            "type": "array",
+                                            "sub_type": "array",
+                                            "title": "item",
+                                            "items": {
+                                                "type": "object",
+                                                "sub_type": "record",
+                                                "title": "item",
+                                                "properties": {
+                                                    "name": {
+                                                        "type": "string",
+                                                        "sub_type": "string",
+                                                        "select2": {
+                                                            "active": true
+                                                        },
+                                                        "minLength": 1,
+                                                        "title": "name"
+                                                    },
+                                                    "self": {
+                                                        "type": "string",
+                                                        "sub_type": "string",
+                                                        "select2": {
+                                                            "active": true
+                                                        },
+                                                        "minLength": 1,
+                                                        "title": "self"
+                                                    }
+                                                },
+                                                "minLength": 1
+                                            },
+                                            "minLength": 1
+                                        }
+                                    },
+                                    "minLength": 1
+                                },
+                                "applicationRoles": {
+                                    "type": "object",
+                                    "sub_type": "record",
+                                    "title": "applicationRoles",
+                                    "properties": {
+                                        "size": {
+                                            "type": "string",
+                                            "sub_type": "string",
+                                            "select2": {
+                                                "active": true
+                                            },
+                                            "minLength": 1,
+                                            "title": "size"
+                                        },
+                                        "max-results": {
+                                            "type": "string",
+                                            "sub_type": "string",
+                                            "select2": {
+                                                "active": true
+                                            },
+                                            "minLength": 1,
+                                            "title": "max-results"
+                                        },
+                                        "item": {
+                                            "type": "array",
+                                            "sub_type": "array",
+                                            "title": "item",
+                                            "items": {
+                                                "type": "object",
+                                                "sub_type": "record",
+                                                "title": "item",
+                                                "properties": {
+                                                    "name": {
+                                                        "type": "string",
+                                                        "sub_type": "string",
+                                                        "select2": {
+                                                            "active": true
+                                                        },
+                                                        "minLength": 1,
+                                                        "title": "name"
+                                                    },
+                                                    "self": {
+                                                        "type": "string",
+                                                        "sub_type": "string",
+                                                        "select2": {
+                                                            "active": true
+                                                        },
+                                                        "minLength": 1,
+                                                        "title": "self"
+                                                    }
+                                                },
+                                                "minLength": 1
+                                            },
+                                            "minLength": 1
+                                        }
+                                    },
+                                    "minLength": 1
+                                },
+                                "expand": {
+                                    "type": "string",
+                                    "sub_type": "string",
+                                    "select2": {
+                                        "active": true
+                                    },
+                                    "minLength": 1,
+                                    "title": "expand"
+                                }
+                            },
+                            "minLength": 1
+                        },
+                        "leadAccountId": {
+                            "type": "string",
+                            "sub_type": "string",
+                            "select2": {
+                                "active": true
+                            },
+                            "minLength": 1,
+                            "title": "leadAccountId"
+                        },
+                        "assigneeType": {
+                            "type": "string",
+                            "sub_type": "string",
+                            "enum": [
+                                "",
+                                "PROJECT_DEFAULT",
+                                "COMPONENT_LEAD",
+                                "PROJECT_LEAD",
+                                "UNASSIGNED"
+                            ],
+                            "enumNames": [
+                                "Select options",
+                                "PROJECT_DEFAULT",
+                                "COMPONENT_LEAD",
+                                "PROJECT_LEAD",
+                                "UNASSIGNED"
+                            ],
+                            "select2": {
+                                "active": true
+                            },
+                            "minLength": 1,
+                            "title": "assigneeType"
+                        },
+                        "assignee": {
+                            "type": "object",
+                            "sub_type": "record",
+                            "title": "assignee",
+                            "properties": {
+                                "self": {
+                                    "type": "string",
+                                    "sub_type": "string",
+                                    "select2": {
+                                        "active": true
+                                    },
+                                    "minLength": 1,
+                                    "title": "self"
+                                },
+                                "accountId": {
+                                    "type": "string",
+                                    "sub_type": "string",
+                                    "select2": {
+                                        "active": true
+                                    },
+                                    "minLength": 1,
+                                    "title": "accountId"
+                                },
+                                "emailAddress": {
+                                    "type": "string",
+                                    "sub_type": "string",
+                                    "select2": {
+                                        "active": true
+                                    },
+                                    "minLength": 1,
+                                    "title": "emailAddress"
+                                },
+                                "avatarUrls": {
+                                    "type": "object",
+                                    "sub_type": "record",
+                                    "title": "avatarUrls",
+                                    "properties": {
+                                        "48x48": {
+                                            "type": "string",
+                                            "sub_type": "string",
+                                            "select2": {
+                                                "active": true
+                                            },
+                                            "minLength": 1,
+                                            "title": "48x48"
+                                        },
+                                        "24x24": {
+                                            "type": "string",
+                                            "sub_type": "string",
+                                            "select2": {
+                                                "active": true
+                                            },
+                                            "minLength": 1,
+                                            "title": "24x24"
+                                        },
+                                        "16x16": {
+                                            "type": "string",
+                                            "sub_type": "string",
+                                            "select2": {
+                                                "active": true
+                                            },
+                                            "minLength": 1,
+                                            "title": "16x16"
+                                        },
+                                        "32x32": {
+                                            "type": "string",
+                                            "sub_type": "string",
+                                            "select2": {
+                                                "active": true
+                                            },
+                                            "minLength": 1,
+                                            "title": "32x32"
+                                        }
+                                    },
+                                    "minLength": 1
+                                },
+                                "displayName": {
+                                    "type": "string",
+                                    "sub_type": "string",
+                                    "select2": {
+                                        "active": true
+                                    },
+                                    "minLength": 1,
+                                    "title": "displayName"
+                                },
+                                "active": {
+                                    "type": "string",
+                                    "sub_type": "string",
+                                    "select2": {
+                                        "active": true
+                                    },
+                                    "minLength": 1,
+                                    "title": "active"
+                                },
+                                "timeZone": {
+                                    "type": "string",
+                                    "sub_type": "string",
+                                    "select2": {
+                                        "active": true
+                                    },
+                                    "minLength": 1,
+                                    "title": "timeZone"
+                                },
+                                "locale": {
+                                    "type": "string",
+                                    "sub_type": "string",
+                                    "select2": {
+                                        "active": true
+                                    },
+                                    "minLength": 1,
+                                    "title": "locale"
+                                },
+                                "groups": {
+                                    "type": "object",
+                                    "sub_type": "record",
+                                    "title": "groups",
+                                    "properties": {
+                                        "size": {
+                                            "type": "string",
+                                            "sub_type": "string",
+                                            "select2": {
+                                                "active": true
+                                            },
+                                            "minLength": 1,
+                                            "title": "size"
+                                        },
+                                        "max-results": {
+                                            "type": "string",
+                                            "sub_type": "string",
+                                            "select2": {
+                                                "active": true
+                                            },
+                                            "minLength": 1,
+                                            "title": "max-results"
+                                        },
+                                        "item": {
+                                            "type": "array",
+                                            "sub_type": "array",
+                                            "title": "item",
+                                            "items": {
+                                                "type": "object",
+                                                "sub_type": "record",
+                                                "title": "item",
+                                                "properties": {
+                                                    "name": {
+                                                        "type": "string",
+                                                        "sub_type": "string",
+                                                        "select2": {
+                                                            "active": true
+                                                        },
+                                                        "minLength": 1,
+                                                        "title": "name"
+                                                    },
+                                                    "self": {
+                                                        "type": "string",
+                                                        "sub_type": "string",
+                                                        "select2": {
+                                                            "active": true
+                                                        },
+                                                        "minLength": 1,
+                                                        "title": "self"
+                                                    }
+                                                },
+                                                "minLength": 1
+                                            },
+                                            "minLength": 1
+                                        }
+                                    },
+                                    "minLength": 1
+                                },
+                                "applicationRoles": {
+                                    "type": "object",
+                                    "sub_type": "record",
+                                    "title": "applicationRoles",
+                                    "properties": {
+                                        "size": {
+                                            "type": "string",
+                                            "sub_type": "string",
+                                            "select2": {
+                                                "active": true
+                                            },
+                                            "minLength": 1,
+                                            "title": "size"
+                                        },
+                                        "max-results": {
+                                            "type": "string",
+                                            "sub_type": "string",
+                                            "select2": {
+                                                "active": true
+                                            },
+                                            "minLength": 1,
+                                            "title": "max-results"
+                                        },
+                                        "item": {
+                                            "type": "array",
+                                            "sub_type": "array",
+                                            "title": "item",
+                                            "items": {
+                                                "type": "object",
+                                                "sub_type": "record",
+                                                "title": "item",
+                                                "properties": {
+                                                    "name": {
+                                                        "type": "string",
+                                                        "sub_type": "string",
+                                                        "select2": {
+                                                            "active": true
+                                                        },
+                                                        "minLength": 1,
+                                                        "title": "name"
+                                                    },
+                                                    "self": {
+                                                        "type": "string",
+                                                        "sub_type": "string",
+                                                        "select2": {
+                                                            "active": true
+                                                        },
+                                                        "minLength": 1,
+                                                        "title": "self"
+                                                    }
+                                                },
+                                                "minLength": 1
+                                            },
+                                            "minLength": 1
+                                        }
+                                    },
+                                    "minLength": 1
+                                },
+                                "expand": {
+                                    "type": "string",
+                                    "sub_type": "string",
+                                    "select2": {
+                                        "active": true
+                                    },
+                                    "minLength": 1,
+                                    "title": "expand"
+                                }
+                            },
+                            "minLength": 1
+                        },
+                        "realAssigneeType": {
+                            "type": "string",
+                            "sub_type": "string",
+                            "enum": [
+                                "",
+                                "PROJECT_DEFAULT",
+                                "COMPONENT_LEAD",
+                                "PROJECT_LEAD",
+                                "UNASSIGNED"
+                            ],
+                            "enumNames": [
+                                "Select options",
+                                "PROJECT_DEFAULT",
+                                "COMPONENT_LEAD",
+                                "PROJECT_LEAD",
+                                "UNASSIGNED"
+                            ],
+                            "minLength": 1,
+                            "title": "realAssigneeType"
+                        },
+                        "realAssignee": {
+                            "type": "object",
+                            "sub_type": "record",
+                            "title": "realAssignee",
+                            "properties": {
+                                "self": {
+                                    "type": "string",
+                                    "sub_type": "string",
+                                    "select2": {
+                                        "active": true
+                                    },
+                                    "minLength": 1,
+                                    "title": "self"
+                                },
+                                "accountId": {
+                                    "type": "string",
+                                    "sub_type": "string",
+                                    "select2": {
+                                        "active": true
+                                    },
+                                    "minLength": 1,
+                                    "title": "accountId"
+                                },
+                                "emailAddress": {
+                                    "type": "string",
+                                    "sub_type": "string",
+                                    "select2": {
+                                        "active": true
+                                    },
+                                    "minLength": 1,
+                                    "title": "emailAddress"
+                                },
+                                "avatarUrls": {
+                                    "type": "object",
+                                    "sub_type": "record",
+                                    "title": "avatarUrls",
+                                    "properties": {
+                                        "48x48": {
+                                            "type": "string",
+                                            "sub_type": "string",
+                                            "select2": {
+                                                "active": true
+                                            },
+                                            "minLength": 1,
+                                            "title": "48x48"
+                                        },
+                                        "24x24": {
+                                            "type": "string",
+                                            "sub_type": "string",
+                                            "select2": {
+                                                "active": true
+                                            },
+                                            "minLength": 1,
+                                            "title": "24x24"
+                                        },
+                                        "16x16": {
+                                            "type": "string",
+                                            "sub_type": "string",
+                                            "select2": {
+                                                "active": true
+                                            },
+                                            "minLength": 1,
+                                            "title": "16x16"
+                                        },
+                                        "32x32": {
+                                            "type": "string",
+                                            "sub_type": "string",
+                                            "select2": {
+                                                "active": true
+                                            },
+                                            "minLength": 1,
+                                            "title": "32x32"
+                                        }
+                                    },
+                                    "minLength": 1
+                                },
+                                "displayName": {
+                                    "type": "string",
+                                    "sub_type": "string",
+                                    "select2": {
+                                        "active": true
+                                    },
+                                    "minLength": 1,
+                                    "title": "displayName"
+                                },
+                                "active": {
+                                    "type": "string",
+                                    "sub_type": "string",
+                                    "select2": {
+                                        "active": true
+                                    },
+                                    "minLength": 1,
+                                    "title": "active"
+                                },
+                                "timeZone": {
+                                    "type": "string",
+                                    "sub_type": "string",
+                                    "select2": {
+                                        "active": true
+                                    },
+                                    "minLength": 1,
+                                    "title": "timeZone"
+                                },
+                                "locale": {
+                                    "type": "string",
+                                    "sub_type": "string",
+                                    "select2": {
+                                        "active": true
+                                    },
+                                    "minLength": 1,
+                                    "title": "locale"
+                                },
+                                "groups": {
+                                    "type": "object",
+                                    "sub_type": "record",
+                                    "title": "groups",
+                                    "properties": {
+                                        "size": {
+                                            "type": "string",
+                                            "sub_type": "string",
+                                            "select2": {
+                                                "active": true
+                                            },
+                                            "minLength": 1,
+                                            "title": "size"
+                                        },
+                                        "max-results": {
+                                            "type": "string",
+                                            "sub_type": "string",
+                                            "select2": {
+                                                "active": true
+                                            },
+                                            "minLength": 1,
+                                            "title": "max-results"
+                                        },
+                                        "item": {
+                                            "type": "array",
+                                            "sub_type": "array",
+                                            "title": "item",
+                                            "items": {
+                                                "type": "object",
+                                                "sub_type": "record",
+                                                "title": "item",
+                                                "properties": {
+                                                    "name": {
+                                                        "type": "string",
+                                                        "sub_type": "string",
+                                                        "select2": {
+                                                            "active": true
+                                                        },
+                                                        "minLength": 1,
+                                                        "title": "name"
+                                                    },
+                                                    "self": {
+                                                        "type": "string",
+                                                        "sub_type": "string",
+                                                        "select2": {
+                                                            "active": true
+                                                        },
+                                                        "minLength": 1,
+                                                        "title": "self"
+                                                    }
+                                                },
+                                                "minLength": 1
+                                            },
+                                            "minLength": 1
+                                        }
+                                    },
+                                    "minLength": 1
+                                },
+                                "applicationRoles": {
+                                    "type": "object",
+                                    "sub_type": "record",
+                                    "title": "applicationRoles",
+                                    "properties": {
+                                        "size": {
+                                            "type": "string",
+                                            "sub_type": "string",
+                                            "select2": {
+                                                "active": true
+                                            },
+                                            "minLength": 1,
+                                            "title": "size"
+                                        },
+                                        "max-results": {
+                                            "type": "string",
+                                            "sub_type": "string",
+                                            "select2": {
+                                                "active": true
+                                            },
+                                            "minLength": 1,
+                                            "title": "max-results"
+                                        },
+                                        "item": {
+                                            "type": "array",
+                                            "sub_type": "array",
+                                            "title": "item",
+                                            "items": {
+                                                "type": "object",
+                                                "sub_type": "record",
+                                                "title": "item",
+                                                "properties": {
+                                                    "name": {
+                                                        "type": "string",
+                                                        "sub_type": "string",
+                                                        "select2": {
+                                                            "active": true
+                                                        },
+                                                        "minLength": 1,
+                                                        "title": "name"
+                                                    },
+                                                    "self": {
+                                                        "type": "string",
+                                                        "sub_type": "string",
+                                                        "select2": {
+                                                            "active": true
+                                                        },
+                                                        "minLength": 1,
+                                                        "title": "self"
+                                                    }
+                                                },
+                                                "minLength": 1
+                                            },
+                                            "minLength": 1
+                                        }
+                                    },
+                                    "minLength": 1
+                                },
+                                "expand": {
+                                    "type": "string",
+                                    "sub_type": "string",
+                                    "select2": {
+                                        "active": true
+                                    },
+                                    "minLength": 1,
+                                    "title": "expand"
+                                }
+                            },
+                            "minLength": 1
+                        },
+                        "isAssigneeTypeValid": {
+                            "type": "string",
+                            "sub_type": "string",
+                            "select2": {
+                                "active": true
+                            },
+                            "minLength": 1,
+                            "title": "isAssigneeTypeValid"
+                        },
+                        "project": {
+                            "type": "string",
+                            "sub_type": "string",
+                            "select2": {
+                                "active": true
+                            },
+                            "minLength": 1,
+                            "title": "project"
+                        },
+                        "projectId": {
+                            "type": "string",
+                            "sub_type": "string",
+                            "select2": {
+                                "active": true
+                            },
+                            "minLength": 1,
+                            "title": "projectId"
+                        }
+                    },
+                    "minLength": 1
+                },
+                "minLength": 1
+            },
+            "issueType": {
+                "type": "array",
+                "sub_type": "array",
+                "title": "issueType",
+                "items": {
+                    "type": "object",
+                    "sub_type": "record",
+                    "title": "issueType",
+                    "properties": {
+                        "self": {
+                            "type": "string",
+                            "sub_type": "string",
+                            "select2": {
+                                "active": true
+                            },
+                            "minLength": 1,
+                            "title": "self"
+                        },
+                        "id": {
+                            "type": "string",
+                            "sub_type": "string",
+                            "select2": {
+                                "active": true
+                            },
+                            "minLength": 1,
+                            "title": "id"
+                        },
+                        "description": {
+                            "type": "string",
+                            "sub_type": "string",
+                            "select2": {
+                                "active": true
+                            },
+                            "minLength": 1,
+                            "title": "description"
+                        },
+                        "iconUrl": {
+                            "type": "string",
+                            "sub_type": "string",
+                            "select2": {
+                                "active": true
+                            },
+                            "minLength": 1,
+                            "title": "iconUrl"
+                        },
+                        "name": {
+                            "type": "string",
+                            "sub_type": "string",
+                            "select2": {
+                                "active": true
+                            },
+                            "minLength": 1,
+                            "title": "name"
+                        },
+                        "subtask": {
+                            "type": "string",
+                            "sub_type": "string",
+                            "select2": {
+                                "active": true
+                            },
+                            "minLength": 1,
+                            "title": "subtask"
+                        },
+                        "avatarId": {
+                            "type": "string",
+                            "sub_type": "string",
+                            "select2": {
+                                "active": true
+                            },
+                            "title": "avatarId"
+                        }
+                    },
+                    "minLength": 1
+                },
+                "minLength": 1
+            },
+            "url": {
+                "type": "string",
+                "sub_type": "string",
+                "select2": {
+                    "active": true
+                },
+                "minLength": 1,
+                "title": "url"
+            },
+            "email": {
+                "type": "string",
+                "sub_type": "string",
+                "select2": {
+                    "active": true
+                },
+                "minLength": 1,
+                "title": "email"
+            },
+            "assigneeType": {
+                "type": "string",
+                "sub_type": "string",
+                "enum": [
+                    "",
+                    "PROJECT_LEAD",
+                    "UNASSIGNED"
+                ],
+                "enumNames": [
+                    "Select options",
+                    "PROJECT_LEAD",
+                    "UNASSIGNED"
+                ],
+                "select2": {
+                    "active": true
+                },
+                "minLength": 1,
+                "title": "assigneeType"
+            },
+            "version": {
+                "type": "array",
+                "sub_type": "array",
+                "title": "version",
+                "items": {
+                    "type": "object",
+                    "sub_type": "record",
+                    "title": "version",
+                    "properties": {
+                        "expand": {
+                            "type": "string",
+                            "sub_type": "string",
+                            "select2": {
+                                "active": true
+                            },
+                            "minLength": 1,
+                            "title": "expand"
+                        },
+                        "self": {
+                            "type": "string",
+                            "sub_type": "string",
+                            "select2": {
+                                "active": true
+                            },
+                            "minLength": 1,
+                            "title": "self"
+                        },
+                        "id": {
+                            "type": "string",
+                            "sub_type": "string",
+                            "select2": {
+                                "active": true
+                            },
+                            "minLength": 1,
+                            "title": "id"
+                        },
+                        "description": {
+                            "type": "string",
+                            "sub_type": "string",
+                            "select2": {
+                                "active": true
+                            },
+                            "minLength": 1,
+                            "title": "description"
+                        },
+                        "name": {
+                            "type": "string",
+                            "sub_type": "string",
+                            "select2": {
+                                "active": true
+                            },
+                            "minLength": 1,
+                            "title": "name"
+                        },
+                        "archived": {
+                            "type": "string",
+                            "sub_type": "string",
+                            "select2": {
+                                "active": true
+                            },
+                            "minLength": 1,
+                            "title": "archived"
+                        },
+                        "released": {
+                            "type": "string",
+                            "sub_type": "string",
+                            "select2": {
+                                "active": true
+                            },
+                            "minLength": 1,
+                            "title": "released"
+                        },
+                        "overdue": {
+                            "type": "string",
+                            "sub_type": "string",
+                            "select2": {
+                                "active": true
+                            },
+                            "minLength": 1,
+                            "title": "overdue"
+                        },
+                        "userStartDate": {
+                            "type": "string",
+                            "sub_type": "string",
+                            "select2": {
+                                "active": true
+                            },
+                            "minLength": 1,
+                            "title": "userStartDate"
+                        },
+                        "userReleaseDate": {
+                            "type": "string",
+                            "sub_type": "string",
+                            "select2": {
+                                "active": true
+                            },
+                            "minLength": 1,
+                            "title": "userReleaseDate"
+                        },
+                        "project": {
+                            "type": "string",
+                            "sub_type": "string",
+                            "select2": {
+                                "active": true
+                            },
+                            "minLength": 1,
+                            "title": "project"
+                        },
+                        "projectId": {
+                            "type": "string",
+                            "sub_type": "string",
+                            "select2": {
+                                "active": true
+                            },
+                            "minLength": 1,
+                            "title": "projectId"
+                        },
+                        "moveUnfixedIssuesTo": {
+                            "type": "string",
+                            "sub_type": "string",
+                            "select2": {
+                                "active": true
+                            },
+                            "minLength": 1,
+                            "title": "moveUnfixedIssuesTo"
+                        },
+                        "operation": {
+                            "type": "array",
+                            "sub_type": "array",
+                            "title": "operation",
+                            "items": {
+                                "type": "object",
+                                "sub_type": "record",
+                                "title": "operation",
+                                "properties": {
+                                    "id": {
+                                        "type": "string",
+                                        "sub_type": "string",
+                                        "select2": {
+                                            "active": true
+                                        },
+                                        "minLength": 1,
+                                        "title": "id"
+                                    },
+                                    "styleClass": {
+                                        "type": "string",
+                                        "sub_type": "string",
+                                        "select2": {
+                                            "active": true
+                                        },
+                                        "minLength": 1,
+                                        "title": "styleClass"
+                                    },
+                                    "iconClass": {
+                                        "type": "string",
+                                        "sub_type": "string",
+                                        "select2": {
+                                            "active": true
+                                        },
+                                        "minLength": 1,
+                                        "title": "iconClass"
+                                    },
+                                    "label": {
+                                        "type": "string",
+                                        "sub_type": "string",
+                                        "select2": {
+                                            "active": true
+                                        },
+                                        "minLength": 1,
+                                        "title": "label"
+                                    },
+                                    "title": {
+                                        "type": "string",
+                                        "sub_type": "string",
+                                        "select2": {
+                                            "active": true
+                                        },
+                                        "minLength": 1,
+                                        "title": "title"
+                                    },
+                                    "href": {
+                                        "type": "string",
+                                        "sub_type": "string",
+                                        "select2": {
+                                            "active": true
+                                        },
+                                        "minLength": 1,
+                                        "title": "href"
+                                    },
+                                    "weight": {
+                                        "type": "string",
+                                        "sub_type": "string",
+                                        "select2": {
+                                            "active": true
+                                        },
+                                        "minLength": 1,
+                                        "title": "weight"
+                                    }
+                                },
+                                "minLength": 1
+                            },
+                            "minLength": 1
+                        },
+                        "remotelink": {
+                            "type": "array",
+                            "sub_type": "array",
+                            "title": "remotelink",
+                            "items": {
+                                "type": "object",
+                                "sub_type": "record",
+                                "title": "remotelink",
+                                "properties": {
+                                    "self": {
+                                        "type": "string",
+                                        "sub_type": "string",
+                                        "select2": {
+                                            "active": true
+                                        },
+                                        "minLength": 1,
+                                        "title": "self"
+                                    },
+                                    "name": {
+                                        "type": "string",
+                                        "sub_type": "string",
+                                        "select2": {
+                                            "active": true
+                                        },
+                                        "minLength": 1,
+                                        "title": "name"
+                                    }
+                                },
+                                "minLength": 1
+                            },
+                            "minLength": 1
+                        }
+                    },
+                    "minLength": 1
+                },
+                "minLength": 1
+            },
+            "name": {
+                "type": "string",
+                "sub_type": "string",
+                "select2": {
+                    "active": true
+                },
+                "minLength": 1,
+                "title": "name"
+            },
+            "roles": {
+                "type": "object",
+                "sub_type": "record",
+                "title": "roles",
+                "properties": {
+                    "Service Desk Team": {
+                        "type": "string",
+                        "sub_type": "string",
+                        "select2": {
+                            "active": true
+                        },
+                        "minLength": 1,
+                        "title": "Service Desk Team"
+                    },
+                    "Developers": {
+                        "type": "string",
+                        "sub_type": "string",
+                        "select2": {
+                            "active": true
+                        },
+                        "minLength": 1,
+                        "title": "Developers"
+                    },
+                    "Service Desk Customers": {
+                        "type": "string",
+                        "sub_type": "string",
+                        "select2": {
+                            "active": true
+                        },
+                        "minLength": 1,
+                        "title": "Service Desk Customers"
+                    },
+                    "Administrators": {
+                        "type": "string",
+                        "sub_type": "string",
+                        "select2": {
+                            "active": true
+                        },
+                        "minLength": 1,
+                        "title": "Administrators"
+                    }
+                },
+                "minLength": 1
+            },
+            "avatarUrls": {
+                "type": "object",
+                "sub_type": "record",
+                "title": "avatarUrls",
+                "properties": {
+                    "48x48": {
+                        "type": "string",
+                        "sub_type": "string",
+                        "select2": {
+                            "active": true
+                        },
+                        "minLength": 1,
+                        "title": "48x48"
+                    },
+                    "24x24": {
+                        "type": "string",
+                        "sub_type": "string",
+                        "select2": {
+                            "active": true
+                        },
+                        "minLength": 1,
+                        "title": "24x24"
+                    },
+                    "16x16": {
+                        "type": "string",
+                        "sub_type": "string",
+                        "select2": {
+                            "active": true
+                        },
+                        "minLength": 1,
+                        "title": "16x16"
+                    },
+                    "32x32": {
+                        "type": "string",
+                        "sub_type": "string",
+                        "select2": {
+                            "active": true
+                        },
+                        "minLength": 1,
+                        "title": "32x32"
+                    }
+                },
+                "minLength": 1
+            },
+            "projectKey": {
+                "type": "array",
+                "sub_type": "array",
+                "title": "projectKey",
+                "items": {
+                    "type": "string",
+                    "sub_type": "string",
+                    "minLength": 1
+                },
+                "minItems": 1
+            },
+            "projectCategory": {
+                "type": "object",
+                "sub_type": "record",
+                "title": "projectCategory",
+                "properties": {
+                    "self": {
+                        "type": "string",
+                        "sub_type": "string",
+                        "select2": {
+                            "active": true
+                        },
+                        "minLength": 1,
+                        "title": "self"
+                    },
+                    "id": {
+                        "type": "string",
+                        "sub_type": "string",
+                        "select2": {
+                            "active": true
+                        },
+                        "minLength": 1,
+                        "title": "id"
+                    },
+                    "name": {
+                        "type": "string",
+                        "sub_type": "string",
+                        "select2": {
+                            "active": true
+                        },
+                        "minLength": 1,
+                        "title": "name"
+                    },
+                    "description": {
+                        "type": "string",
+                        "sub_type": "string",
+                        "select2": {
+                            "active": true
+                        },
+                        "minLength": 1,
+                        "title": "description"
+                    }
+                },
+                "minLength": 1
+            },
+            "projectTypeKey": {
+                "type": "string",
+                "sub_type": "string",
+                "select2": {
+                    "active": true
+                },
+                "minLength": 1,
+                "title": "projectTypeKey"
+            }
+        }
+    }
+}

@@ -1,0 +1,444 @@
+{
+    "id": "fld_common.WmJiraProvider.com_softwareag_cloudstreams_jira_v2_1.operations.actions:createComponent",
+    "name": "createComponent",
+    "label": "Create Component",
+    "description": "Creates a new component within a specified project",
+    "inputSchema": {
+        "type": "object",
+        "title": "createComponent",
+        "properties": {
+            "componentName": {
+                "type": "string",
+                "sub_type": "string",
+                "select2": {
+                    "active": true
+                },
+                "minLength": 1,
+                "title": "componentName"
+            },
+            "description": {
+                "type": "string",
+                "sub_type": "string",
+                "select2": {
+                    "active": true
+                },
+                "title": "description"
+            },
+            "leadAccountId": {
+                "type": "string",
+                "sub_type": "string",
+                "select2": {
+                    "active": true
+                },
+                "title": "leadAccountId"
+            },
+            "assigneeType": {
+                "type": "string",
+                "sub_type": "string",
+                "select2": {
+                    "active": true
+                },
+                "title": "assigneeType"
+            },
+            "realAssigneeType": {
+                "type": "string",
+                "sub_type": "string",
+                "select2": {
+                    "active": true
+                },
+                "title": "realAssigneeType"
+            },
+            "realAssignee": {
+                "type": "object",
+                "sub_type": "record",
+                "title": "realAssignee",
+                "properties": {
+                    "accountId": {
+                        "type": "string",
+                        "sub_type": "string",
+                        "select2": {
+                            "active": true
+                        },
+                        "title": "accountId"
+                    }
+                }
+            },
+            "isAssigneeTypeValid": {
+                "type": "string",
+                "sub_type": "string",
+                "select2": {
+                    "active": true
+                },
+                "title": "isAssigneeTypeValid"
+            },
+            "project": {
+                "type": "string",
+                "sub_type": "string",
+                "select2": {
+                    "active": true
+                },
+                "minLength": 1,
+                "title": "project"
+            },
+            "projectId": {
+                "type": "string",
+                "sub_type": "string",
+                "select2": {
+                    "active": true
+                },
+                "title": "projectId"
+            }
+        }
+    },
+    "outputSchema": {
+        "type": "object",
+        "title": "output",
+        "properties": {
+            "self": {
+                "type": "string",
+                "sub_type": "string",
+                "select2": {
+                    "active": true
+                },
+                "minLength": 1,
+                "title": "self"
+            },
+            "componentId": {
+                "type": "string",
+                "sub_type": "string",
+                "select2": {
+                    "active": true
+                },
+                "minLength": 1,
+                "title": "componentId"
+            },
+            "componentName": {
+                "type": "string",
+                "sub_type": "string",
+                "select2": {
+                    "active": true
+                },
+                "minLength": 1,
+                "title": "componentName"
+            },
+            "description": {
+                "type": "string",
+                "sub_type": "string",
+                "select2": {
+                    "active": true
+                },
+                "minLength": 1,
+                "title": "description"
+            },
+            "lead": {
+                "type": "object",
+                "sub_type": "record",
+                "title": "lead",
+                "properties": {
+                    "self": {
+                        "type": "string",
+                        "sub_type": "string",
+                        "select2": {
+                            "active": true
+                        },
+                        "minLength": 1,
+                        "title": "self"
+                    },
+                    "accountId": {
+                        "type": "string",
+                        "sub_type": "string",
+                        "select2": {
+                            "active": true
+                        },
+                        "minLength": 1,
+                        "title": "accountId"
+                    },
+                    "avatarUrls": {
+                        "type": "object",
+                        "sub_type": "record",
+                        "title": "avatarUrls",
+                        "properties": {
+                            "48x48": {
+                                "type": "string",
+                                "sub_type": "string",
+                                "select2": {
+                                    "active": true
+                                },
+                                "minLength": 1,
+                                "title": "48x48"
+                            },
+                            "24x24": {
+                                "type": "string",
+                                "sub_type": "string",
+                                "select2": {
+                                    "active": true
+                                },
+                                "minLength": 1,
+                                "title": "24x24"
+                            },
+                            "16x16": {
+                                "type": "string",
+                                "sub_type": "string",
+                                "select2": {
+                                    "active": true
+                                },
+                                "minLength": 1,
+                                "title": "16x16"
+                            },
+                            "32x32": {
+                                "type": "string",
+                                "sub_type": "string",
+                                "select2": {
+                                    "active": true
+                                },
+                                "minLength": 1,
+                                "title": "32x32"
+                            }
+                        },
+                        "minLength": 1
+                    },
+                    "displayName": {
+                        "type": "string",
+                        "sub_type": "string",
+                        "select2": {
+                            "active": true
+                        },
+                        "minLength": 1,
+                        "title": "displayName"
+                    },
+                    "active": {
+                        "type": "string",
+                        "sub_type": "string",
+                        "select2": {
+                            "active": true
+                        },
+                        "minLength": 1,
+                        "title": "active"
+                    }
+                },
+                "minLength": 1
+            },
+            "assigneeType": {
+                "type": "string",
+                "sub_type": "string",
+                "select2": {
+                    "active": true
+                },
+                "minLength": 1,
+                "title": "assigneeType"
+            },
+            "assignee": {
+                "type": "object",
+                "sub_type": "record",
+                "title": "assignee",
+                "properties": {
+                    "self": {
+                        "type": "string",
+                        "sub_type": "string",
+                        "select2": {
+                            "active": true
+                        },
+                        "minLength": 1,
+                        "title": "self"
+                    },
+                    "accountId": {
+                        "type": "string",
+                        "sub_type": "string",
+                        "select2": {
+                            "active": true
+                        },
+                        "minLength": 1,
+                        "title": "accountId"
+                    },
+                    "avatarUrls": {
+                        "type": "object",
+                        "sub_type": "record",
+                        "title": "avatarUrls",
+                        "properties": {
+                            "48x48": {
+                                "type": "string",
+                                "sub_type": "string",
+                                "select2": {
+                                    "active": true
+                                },
+                                "minLength": 1,
+                                "title": "48x48"
+                            },
+                            "24x24": {
+                                "type": "string",
+                                "sub_type": "string",
+                                "select2": {
+                                    "active": true
+                                },
+                                "minLength": 1,
+                                "title": "24x24"
+                            },
+                            "16x16": {
+                                "type": "string",
+                                "sub_type": "string",
+                                "select2": {
+                                    "active": true
+                                },
+                                "minLength": 1,
+                                "title": "16x16"
+                            },
+                            "32x32": {
+                                "type": "string",
+                                "sub_type": "string",
+                                "select2": {
+                                    "active": true
+                                },
+                                "minLength": 1,
+                                "title": "32x32"
+                            }
+                        },
+                        "minLength": 1
+                    },
+                    "displayName": {
+                        "type": "string",
+                        "sub_type": "string",
+                        "select2": {
+                            "active": true
+                        },
+                        "minLength": 1,
+                        "title": "displayName"
+                    },
+                    "active": {
+                        "type": "string",
+                        "sub_type": "string",
+                        "select2": {
+                            "active": true
+                        },
+                        "minLength": 1,
+                        "title": "active"
+                    }
+                },
+                "minLength": 1
+            },
+            "realAssigneeType": {
+                "type": "string",
+                "sub_type": "string",
+                "select2": {
+                    "active": true
+                },
+                "minLength": 1,
+                "title": "realAssigneeType"
+            },
+            "realAssignee": {
+                "type": "object",
+                "sub_type": "record",
+                "title": "realAssignee",
+                "properties": {
+                    "self": {
+                        "type": "string",
+                        "sub_type": "string",
+                        "select2": {
+                            "active": true
+                        },
+                        "minLength": 1,
+                        "title": "self"
+                    },
+                    "accountId": {
+                        "type": "string",
+                        "sub_type": "string",
+                        "select2": {
+                            "active": true
+                        },
+                        "minLength": 1,
+                        "title": "accountId"
+                    },
+                    "avatarUrls": {
+                        "type": "object",
+                        "sub_type": "record",
+                        "title": "avatarUrls",
+                        "properties": {
+                            "48x48": {
+                                "type": "string",
+                                "sub_type": "string",
+                                "select2": {
+                                    "active": true
+                                },
+                                "minLength": 1,
+                                "title": "48x48"
+                            },
+                            "24x24": {
+                                "type": "string",
+                                "sub_type": "string",
+                                "select2": {
+                                    "active": true
+                                },
+                                "minLength": 1,
+                                "title": "24x24"
+                            },
+                            "16x16": {
+                                "type": "string",
+                                "sub_type": "string",
+                                "select2": {
+                                    "active": true
+                                },
+                                "minLength": 1,
+                                "title": "16x16"
+                            },
+                            "32x32": {
+                                "type": "string",
+                                "sub_type": "string",
+                                "select2": {
+                                    "active": true
+                                },
+                                "minLength": 1,
+                                "title": "32x32"
+                            }
+                        },
+                        "minLength": 1
+                    },
+                    "displayName": {
+                        "type": "string",
+                        "sub_type": "string",
+                        "select2": {
+                            "active": true
+                        },
+                        "minLength": 1,
+                        "title": "displayName"
+                    },
+                    "active": {
+                        "type": "string",
+                        "sub_type": "string",
+                        "select2": {
+                            "active": true
+                        },
+                        "minLength": 1,
+                        "title": "active"
+                    }
+                },
+                "minLength": 1
+            },
+            "isAssigneeTypeValid": {
+                "type": "string",
+                "sub_type": "string",
+                "select2": {
+                    "active": true
+                },
+                "minLength": 1,
+                "title": "isAssigneeTypeValid"
+            },
+            "project": {
+                "type": "string",
+                "sub_type": "string",
+                "select2": {
+                    "active": true
+                },
+                "minLength": 1,
+                "title": "project"
+            },
+            "projectId": {
+                "type": "string",
+                "sub_type": "string",
+                "select2": {
+                    "active": true
+                },
+                "minLength": 1,
+                "title": "projectId"
+            }
+        }
+    }
+}

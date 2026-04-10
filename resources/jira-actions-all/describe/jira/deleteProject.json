@@ -1,0 +1,36 @@
+{
+    "id": "fld_common.WmJiraProvider.com_softwareag_cloudstreams_jira_v2_1.operations.actions:deleteProject",
+    "name": "deleteProject",
+    "label": "Delete Project",
+    "description": "Permanently deletes an existing project by its ID or key",
+    "inputSchema": {
+        "type": "object",
+        "title": "deleteProject",
+        "properties": {
+            "projectIdOrKey": {
+                "type": "string",
+                "sub_type": "string",
+                "select2": {
+                    "active": true
+                },
+                "minLength": 1,
+                "title": "projectIdOrKey"
+            }
+        }
+    },
+    "outputSchema": {
+        "type": "object",
+        "title": "output",
+        "properties": {
+            "message": {
+                "type": "string",
+                "sub_type": "string",
+                "select2": {
+                    "active": true
+                },
+                "minLength": 1,
+                "title": "message"
+            }
+        }
+    }
+}
