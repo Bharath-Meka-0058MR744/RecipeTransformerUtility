@@ -1,71 +1,100 @@
-# Recipe Transformer Utility v2.0
+# Recipe Transformer Utility v4.0
 
-A Python utility to transform recipe JSON files to conform to the `newSchema.json` standard format while **preserving ALL original content**.
+A comprehensive Python utility to transform recipe JSON files to conform to the `recipe-schema-draft-01.json` standard as defined in the **AI Enablement - Connectors Metadata Standardization** specification.
 
 ## Overview
 
-This utility helps standardize recipe/connector definitions by transforming various input formats into a consistent schema that follows the `newSchema.json` specification. **Version 2.0 ensures NO DATA LOSS** - all original content is preserved in the transformed output.
+This utility implements the complete recipe metadata standardization framework for IBM webMethods Hybrid Integration, enabling AI-powered workflow creation by providing consistent, normalized metadata for connectors, applications, and integration recipes.
 
 ## Features
 
-- ✅ Validates if input already conforms to schema
-- ✅ Transforms complex recipe structures to standard connector format
+### Core Capabilities
+- ✅ **Full Schema Compliance**: Implements recipe-schema-draft-01.json specification
+- ✅ **Application Metadata**: Extracts and transforms connector/application information
+- ✅ **Interaction Support**: Handles actions and triggers with authentication metadata
+- ✅ **Provenance Tracking**: Maintains lifecycle metadata (status, visibility, timestamps)
+- ✅ **Dependency Management**: Tracks application and interaction dependencies
+- ✅ **Tag System**: Supports categories, keywords, and platform availability
+- ✅ **Compatibility Info**: Runtime and version requirements
+- ✅ **Usage Statistics**: Download counts, ratings, and active instances
+
+### Transformation Features
+- ✅ Validates existing recipe-schema-draft-01.json format
+- ✅ Transforms application metadata with actions/triggers
 - ✅ Extracts connector information from workflow recipes
-- ✅ Generates unique IDs for each connector
-- ✅ Preserves connector icons and metadata
-- ✅ **PRESERVES ALL ORIGINAL DATA** - no content loss (v2.0)
-- ✅ Stores complete original recipe in `originalRecipeData` field
-- ✅ Extracts and preserves actions, triggers, operations
-- ✅ Maintains custom fields and nested data structures
-- ✅ Outputs clean, formatted JSON with transformation metadata
+- ✅ Generates unique UUIDs and semantic versions
+- ✅ Converts names to kebab-case format
+- ✅ Infers trigger types (webhook, polling, listener)
+- ✅ Extracts authentication types from capabilities
+- ✅ Preserves all original metadata
+- ✅ Outputs clean, formatted JSON
 
-## Schema Format
+## Recipe Schema Structure
 
-The standard schema (`newSchema.json`) defines connectors with the following structure:
+The standard schema (`recipe-schema-draft-01.json`) defines recipes with:
 
 ```json
 {
-    "id": "unique-uuid",
-    "name": "connector-name",
-    "label": "Display Label",
-    "description": "Connector description",
-    "version": "1.0.0",
-    "icon": "icon-name",
-    "tags": {
-        "category": ["Category"],
-        "deprecated": false,
-        "availableOn": ["workflow", "flow.cloud", "flow.anywhere"]
-    },
-    "capabilities": {
-        "auths": [...],
-        "interactionTypes": ["actions", "triggers"]
-    },
-    "sourceMetadata": {
-        "scope": "global",
-        "framework": "cloudstreams",
-        "provider": "ProviderName"
-    },
-    "configurations": {
-        "allowCustomOperations": true,
-        "allowDeleteApplication": false,
-        "allowUpdateApplication": false
+  "id": "uuid",
+  "name": "kebab-case-name",
+  "label": "Display Name",
+  "description": {
+    "overview": "Brief description (≤150 chars)",
+    "details": "Comprehensive markdown description"
+  },
+  "version": "1.0.0",
+  "tags": {
+    "category": ["Category1", "Category2"],
+    "availableOn": ["workflow", "flow.cloud", "flow.anywhere"],
+    "keyword": ["keyword1", "keyword2"],
+    "supportsEdge": false
+  },
+  "provenance": {
+    "status": "draft|published|deprecated|archived",
+    "visibility": "public|private|organization",
+    "createdAt": "2024-01-01T00:00:00Z",
+    "updatedAt": "2024-01-01T00:00:00Z",
+    "publishedAt": "2024-01-01T00:00:00Z",
+    "owner": {
+      "userId": "user-id",
+      "tenantId": "tenant-id",
+      "orgId": "org-id"
     }
-},
-    "originalRecipeData": {
-        // Complete original recipe data preserved here
+  },
+  "dependencies": {
+    "applications": [
+      {
+        "id": "application-id",
+        "label": "Application Name",
+        "icon": "icon-name"
+      }
+    ],
+    "interactions": [
+      {
+        "type": "trigger|action",
+        "applicationId": "application-id",
+        "id": "interaction-id",
+        "label": "Interaction Name",
+        "triggerType": "webhook|polling|listener",
+        "authType": "oauth2|credentials|api-key"
+      }
+    ]
+  },
+  "compatibility": {
+    "runtime": "workflow-engine|integration-server",
+    "minRuntimeVersion": "10.15.0",
+    "maxRuntimeVersion": "12.0.0"
+  },
+  "configurations": {},
+  "usageStatistics": {
+    "downloadCount": 1247,
+    "activeInstances": 89,
+    "rating": {
+      "average": 4.7,
+      "count": 156
     },
-    "recipeDetails": {
-        // Extracted recipe details (actions, triggers, etc.)
-    },
-    "actions": [...],
-    "triggers": [...],
-    "operations": [...],
-    "transformationMetadata": {
-        "transformedAt": "2024-01-01T00:00:00Z",
-        "transformerVersion": "2.0.0",
-        "schemaVersion": "newSchema.json",
-        "preservedOriginalData": true
-    }
+    "lastUsed": "2024-12-20T18:30:00Z"
+  }
 }
 ```
 
@@ -74,26 +103,32 @@ The standard schema (`newSchema.json`) defines connectors with the following str
 ### Basic Usage
 
 ```bash
-python3 recipe_transformer.py <input_recipe.json> [output_file.json]
+python recipe_transformer.py <input_recipe.json> [output_file.json]
 ```
 
 ### Examples
 
-**Transform a complex recipe (preserves all content):**
+**Transform application metadata with actions/triggers:**
 ```bash
-python3 recipe_transformer.py recipes/boxComplexRecipe.json recipes/transformed_recipe.json
-# Input: 361 KB → Output: ~361 KB (all content preserved)
+python recipe_transformer.py resources/jira-application.json
+# Output: resources/jira-application_transformed.json
 ```
 
-**Validate an existing recipe (auto-generates output filename):**
+**Transform interaction metadata:**
 ```bash
-python3 recipe_transformer.py recipes/boxRecipev1.json
-# Output: recipes/boxRecipev1_transformed.json
+python recipe_transformer.py resources/jira-interactions.json
+# Extracts 9 actions and 30 triggers with authentication info
+```
+
+**Validate existing recipe:**
+```bash
+python recipe_transformer.py workflowSample.json
+# Validates and enhances already-compliant recipes
 ```
 
 **Transform with custom output path:**
 ```bash
-python3 recipe_transformer.py recipes/myRecipe.json output/standardized_recipe.json
+python recipe_transformer.py recipes/myRecipe.json output/standardized_recipe.json
 ```
 
 ### Web Application
@@ -110,79 +145,212 @@ See [WEBAPP-QUICKSTART.md](WEBAPP-QUICKSTART.md) for details.
 
 ## Input Formats Supported
 
-### 1. Standard Schema Format (Already Compliant)
-If your input already follows the `newSchema.json` format, the utility will validate and pass it through:
-
-```json
-[
-    {
-        "id": "...",
-        "name": "connector-name",
-        "label": "Connector Label",
-        ...
-    }
-]
-```
-
-### 2. Complex Recipe Format
-Extracts connector definitions from complex workflow recipes:
+### 1. Recipe Schema Format (Already Compliant)
+Recipes that already follow `recipe-schema-draft-01.json`:
 
 ```json
 {
-    "output": {
-        "recipe": {
-            "connectors": ["Clock", "Box", "Loop"],
-            ...
-        },
-        "connectors_icons": [
-            {"connector": "Box", "icon": "box"},
-            ...
-        ]
-    }
+  "id": "550e8400-e29b-41d4-a716-446655440105",
+  "name": "slack-message-to-google-tasks",
+  "label": "Create Google Task for Slack Message",
+  "description": {...},
+  "version": "1.0.0",
+  "tags": {...},
+  "provenance": {...},
+  "dependencies": {...}
 }
 ```
 
-## Output
-
-The utility generates a JSON array of connector definitions that conform to the standard schema:
+### 2. Application Metadata Format
+Application/connector definitions with capabilities:
 
 ```json
-[
-    {
-        "id": "generated-uuid",
-        "name": "clock",
-        "label": "Clock",
-        "description": "Clock connector for workflow integration.",
-        "version": "1.0.0",
-        "icon": "clock",
-        "tags": {...},
-        "capabilities": {...},
-        "sourceMetadata": {...},
-        "configurations": {...}
-    },
-    ...
-]
+{
+  "id": "com.softwareag.cloudstreams.jira_v2.1",
+  "name": "atlassianJira",
+  "label": "Atlassian Jira",
+  "description": "JIRA issue tracking product",
+  "version": "2.1",
+  "icon": "atlassian-jira-icon",
+  "tags": {
+    "categories": ["Collaboration", "Productivity"]
+  },
+  "capabilities": {
+    "auths": [
+      {
+        "name": "credentials",
+        "label": "Credentials",
+        "type": "credentials"
+      }
+    ],
+    "interactionTypes": ["actions", "triggers"]
+  }
+}
 ```
 
-## Transformation Logic (v2.0)
+### 3. Interaction Metadata Format
+Application with actions and triggers:
 
-1. **Format Detection**: Identifies if input is already in standard format
-2. **Connector Extraction**: Extracts connector names and metadata from complex structures
-3. **ID Generation**: Creates unique UUIDs for each connector
-4. **Metadata Mapping**: Maps icons, names, and other properties
-5. **Schema Compliance**: Ensures all required fields are present
-6. **Data Preservation**: Stores complete original data in `originalRecipeData`
-7. **Content Extraction**: Extracts actions, triggers, operations into dedicated fields
-8. **Custom Field Preservation**: Maintains all custom fields with `original_` prefix
-9. **Metadata Addition**: Adds transformation metadata for tracking
-10. **Validation**: Verifies output conforms to schema standards
+```json
+{
+  "id": "app-id",
+  "name": "application-name",
+  "label": "Application Label",
+  "actions": [
+    {
+      "id": "action-id",
+      "name": "actionName",
+      "label": "Action Label",
+      "description": "Action description"
+    }
+  ],
+  "triggers": [
+    {
+      "id": "trigger-id",
+      "name": "triggerName",
+      "label": "Trigger Label",
+      "description": "Trigger description"
+    }
+  ]
+}
+```
 
-### Key Improvements in v2.0
+### 4. Complex Recipe Format
+Workflow recipes with connector information:
 
-- **Zero Data Loss**: All original content is preserved in the output
-- **Dual Storage**: Data stored both in `originalRecipeData` (complete) and extracted fields (structured)
-- **File Size Preservation**: Output file size matches or exceeds input size (no compression)
-- **Transformation Tracking**: Metadata tracks when and how transformation occurred
+```json
+{
+  "output": {
+    "recipe": {
+      "connectors": ["Clock", "Box", "Loop"],
+      "name": "Box Integration"
+    },
+    "connectors_icons": [
+      {"connector": "Box", "icon": "box"}
+    ]
+  }
+}
+```
+
+## Transformation Logic
+
+### Process Flow
+
+1. **Format Detection**: Identifies input format and structure
+2. **Validation**: Checks if already compliant with schema
+3. **Extraction**: Pulls metadata from various locations
+4. **Normalization**: Converts to standard formats
+   - Names → kebab-case
+   - Versions → semantic versioning (MAJOR.MINOR.PATCH)
+   - IDs → UUIDs
+5. **Enhancement**: Adds missing required fields
+6. **Interaction Processing**: Extracts actions/triggers with auth info
+7. **Dependency Mapping**: Links applications and interactions
+8. **Provenance Creation**: Generates lifecycle metadata
+9. **Validation**: Ensures output conforms to schema
+10. **Output**: Saves formatted JSON
+
+### Key Transformations
+
+**Name Normalization:**
+- `Atlassian Jira` → `atlassian-jira`
+- `ServiceNow_SanDiego` → `servicenow-sandiego`
+
+**Version Conversion:**
+- `2.1` → `2.1.0`
+- `San Diego` → `1.0.0`
+
+**Interaction Extraction:**
+- Actions: Extracted with authentication type
+- Triggers: Extracted with trigger type inference
+- Auth types: Mapped from capabilities.auths
+
+**Trigger Type Inference:**
+- Webhook: Based on name/description keywords
+- Polling: Default for most triggers
+- Listener: Based on event-driven patterns
+
+## Output Examples
+
+### Example 1: Application Metadata → Recipe
+
+**Input** (`jira-application.json`):
+```json
+{
+  "id": "com.softwareag.cloudstreams.jira_v2.1",
+  "name": "atlassianJira",
+  "label": "Atlassian Jira",
+  "version": "2.1",
+  "capabilities": {
+    "auths": [{"type": "credentials"}],
+    "interactionTypes": ["actions", "triggers"]
+  }
+}
+```
+
+**Output** (`jira-application_transformed.json`):
+```json
+{
+  "id": "c6ea5726-4107-47df-a85d-06675981e374",
+  "name": "atlassianjira",
+  "label": "Atlassian Jira",
+  "description": {
+    "overview": "Integration recipe for Atlassian Jira",
+    "details": "This recipe provides comprehensive integration capabilities..."
+  },
+  "version": "2.1.0",
+  "tags": {
+    "category": ["Collaboration", "Productivity"],
+    "availableOn": ["workflow"],
+    "keyword": []
+  },
+  "provenance": {
+    "status": "draft",
+    "visibility": "private",
+    "createdAt": "2026-04-08T05:51:09.123456Z",
+    "updatedAt": "2026-04-08T05:51:09.123456Z",
+    "publishedAt": null,
+    "owner": {"userId": "system"}
+  },
+  "dependencies": {
+    "applications": [
+      {
+        "id": "com.softwareag.cloudstreams.jira_v2.1",
+        "label": "Atlassian Jira",
+        "icon": "atlassian-jira-icon"
+      }
+    ]
+  },
+  "compatibility": {},
+  "configurations": {},
+  "usageStatistics": {}
+}
+```
+
+### Example 2: Interactions → Recipe with Dependencies
+
+**Input** (`jira-interactions.json`):
+- 9 actions (getProjectDetails, createProject, etc.)
+- 30 triggers (newIssue, issueUpdated, etc.)
+
+**Output**:
+- Recipe with 1 application dependency
+- 39 interactions (9 actions + 30 triggers)
+- Each interaction includes:
+  - Type (action/trigger)
+  - Application ID reference
+  - Authentication type
+  - Trigger type (for triggers)
+
+## API Alignment
+
+This transformer aligns with the AI Enablement - Connectors Metadata Standardization API endpoints:
+
+- `GET /applications` → Application metadata
+- `GET /applications/{aid}/interactions` → Actions and triggers
+- `GET /recipes` → Recipe listings
+- `GET /recipes/{rid}` → Recipe details
+- `GET /recipes/{rid}/dependencies` → Dependency information
 
 ## Requirements
 
@@ -193,97 +361,134 @@ The utility generates a JSON array of connector definitions that conform to the 
 
 ```
 .
-├── recipe_transformer.py          # Main utility script (CLI & library)
-├── newSchema.json                 # Standard schema definition
-├── README.md                      # Main documentation
-├── RECIPE-TRANSFORMER-README.md   # Detailed documentation
-└── webapp/                        # Web interface
-    ├── app.py                     # Flask application
-    ├── run.sh                     # Startup script
-    └── templates/                 # HTML templates
+├── recipe_transformer.py              # Main utility (v4.0)
+├── recipe-schema-draft-01.json        # Standard schema definition
+├── workflowSample.json                # Sample compliant recipe
+├── README.md                          # Quick start guide
+├── RECIPE-TRANSFORMER-README.md       # This file (detailed docs)
+├── resources/                         # Sample metadata files
+│   ├── jira-application.json
+│   ├── jira-interactions.json
+│   ├── slack-application.json
+│   ├── servicenow-application.json
+│   └── AI+Enablement+-+Connectors+Metadata+Standarization.doc
+└── webapp/                            # Web interface
+    ├── app.py
+    ├── run.sh
+    └── templates/
 ```
 
 ## Error Handling
 
-The utility handles various error scenarios:
+The utility handles various scenarios:
 
-- **Missing input file**: Clear error message with file path
-- **Invalid JSON**: Reports JSON parsing errors
-- **Missing schema**: Alerts if `newSchema.json` is not found
-- **Unknown format**: Attempts best-effort transformation with warnings
+- **Missing input file**: Clear error with file path
+- **Invalid JSON**: Reports parsing errors with line numbers
+- **Missing schema**: Continues with built-in validation
+- **Unknown format**: Best-effort transformation with warnings
+- **Invalid versions**: Converts to valid semver format
+- **Invalid UUIDs**: Generates new UUIDs
+- **Invalid names**: Converts to kebab-case
 
 ## Exit Codes
 
 - `0`: Success
 - `1`: Error (file not found, invalid JSON, etc.)
 
-## Examples of Transformation
+## Validation Rules
 
-### Example 1: Complex Recipe → Standard Format
+### Required Fields
+- `id`: Must be valid UUID
+- `name`: Must be kebab-case (lowercase, hyphens only)
+- `label`: Non-empty string
+- `description.overview`: Required, ≤150 characters recommended
+- `version`: Must be semantic version (MAJOR.MINOR.PATCH)
+- `tags.category`: At least one category
+- `tags.availableOn`: At least one platform
+- `provenance`: Complete lifecycle metadata
+- `dependencies.applications`: At least one application
 
-**Input** (`boxComplexRecipe.json`):
-```json
-{
-    "output": {
-        "recipe": {
-            "connectors": ["Clock", "Box", "Loop", "Developer Tools"]
-        },
-        "connectors_icons": [
-            {"connector": "Clock", "icon": "Clock"},
-            {"connector": "Box", "icon": "box"}
-        ]
-    }
-}
-```
+### Optional Fields
+- `description.details`: Markdown supported
+- `tags.keyword`: Array of search keywords
+- `tags.supportsEdge`: Boolean flag
+- `dependencies.interactions`: Actions and triggers
+- `compatibility`: Runtime requirements
+- `configurations`: System properties
+- `usageStatistics`: Usage metrics
 
-**Output** (`boxComplexRecipe_transformed.json`):
-```json
-[
-    {
-        "id": "9a9f3828-b3f2-4887-88b4-613135d33c9e",
-        "name": "Clock",
-        "label": "Clock",
-        "icon": "Clock",
-        ...
-    },
-    {
-        "id": "43c61bdb-6f2c-470a-bc68-6f5a7deda5f5",
-        "name": "Box",
-        "label": "Box",
-        "icon": "box",
-        ...
-    }
-]
-```
+## Platform Support
 
-### Example 2: Already Compliant Format
+### Supported Platforms (availableOn)
+- `workflow`: Workflow Engine
+- `flow.cloud`: Flow Cloud
+- `flow.anywhere`: Flow Anywhere (DADA)
 
-**Input** (`boxRecipev1.json`):
-```json
-[
-    {
-        "id": "clock-connector-id",
-        "name": "clock",
-        "label": "Clock",
-        ...
-    }
-]
-```
+### Supported Runtimes
+- `workflow-engine`: Workflow runtime
+- `integration-server`: Integration Server runtime
 
-**Output**: Same as input (validated and passed through)
+### Authentication Types
+- `credentials`: Username/password
+- `oauth2`: OAuth 2.0 (various flows)
+- `oauth_v20_authorization_code`: OAuth 2.0 Authorization Code
+- `api-key`: API key authentication
+- `aws-signature-v4`: AWS Signature v4
+- `connection`: Connection-based auth
+
+### Trigger Types
+- `webhook`: HTTP webhook triggers
+- `polling`: Polling-based triggers
+- `listener`: Event listener triggers
 
 ## Contributing
 
-To extend the transformer for new input formats:
+To extend the transformer:
 
-1. Add a new transformation method in the `RecipeTransformer` class
-2. Update the `transform()` method to detect and route to your new method
-3. Ensure output conforms to `newSchema.json` structure
+1. Add new extraction methods for specific formats
+2. Update `_transform_to_recipe_schema()` to handle new cases
+3. Add validation rules in `_validate_and_enhance()`
+4. Update tests and documentation
+
+## Version History
+
+### v4.0 (Current)
+- Full implementation of recipe-schema-draft-01.json
+- Support for interactions (actions/triggers)
+- Authentication type extraction
+- Trigger type inference
+- Enhanced provenance tracking
+- Improved validation and error handling
+- Alignment with AI Enablement specification
+
+### v3.0
+- Basic recipe-schema-draft-01.json support
+- Application extraction
+- Workflow sample reference
+
+### v2.0
+- Data preservation features
+- Original data storage
+
+### v1.0
+- Initial release
+- Basic transformation
 
 ## License
 
-This utility is part of the wmiorecipes project.
+This utility is part of the IBM webMethods integration project.
 
 ## Support
 
-For issues or questions, please refer to the main project documentation or create an issue in the repository.
+For issues or questions:
+1. Check this documentation
+2. Review sample files in `resources/`
+3. Examine `workflowSample.json` for reference
+4. Consult AI Enablement - Connectors Metadata Standardization specification
+
+## References
+
+- Recipe Schema: `recipe-schema-draft-01.json`
+- Specification: `resources/AI+Enablement+-+Connectors+Metadata+Standarization.doc`
+- Sample Recipe: `workflowSample.json`
+- Application Samples: `resources/*.json`
