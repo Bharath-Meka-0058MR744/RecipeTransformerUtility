@@ -135,6 +135,7 @@ textarea[readonly] {
 .button-group {
     display: flex;
     gap: 10px;
+    flex-wrap: wrap;
 }
 
 .btn {
@@ -148,6 +149,18 @@ textarea[readonly] {
     display: inline-flex;
     align-items: center;
     gap: 8px;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+/* File upload label styled as button */
+label.btn {
+    cursor: pointer;
+}
+
+label.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
 }
 
 .btn:hover {
