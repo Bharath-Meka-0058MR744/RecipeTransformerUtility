@@ -15,6 +15,7 @@ const loadSampleBtn = document.getElementById('loadSampleBtn');
 const clearInputBtn = document.getElementById('clearInputBtn');
 const copyOutputBtn = document.getElementById('copyOutputBtn');
 const downloadBtn = document.getElementById('downloadBtn');
+const fileUpload = document.getElementById('fileUpload');
 const inputStatus = document.getElementById('inputStatus');
 const outputStatus = document.getElementById('outputStatus');
 const transformStatus = document.getElementById('transformStatus');
@@ -191,9 +192,68 @@ async function validateSchema() {
     }
 }
 
+function handleFileUpload(event) {
+    const file = event.target.files[0];
+    
+    if (!file) {
+        return;
+    }
+    
+    // Check if file is JSON
+    if (!file.name.endsWith('.json') && file.type !== 'application/json') {
+        showStatus(inputStatus, '⚠️ Please upload a JSON file', 'warning');
+        event.target.value = ''; // Reset file input
+        return;
+    }
+    
+    // Check file size (limit to 10MB)
+    const maxSize = 10 * 1024 * 1024; // 10MB in bytes
+    if (file.size > maxSize) {
+        showStatus(inputStatus, '⚠️ File size exceeds 10MB limit', 'warning');
+        event.target.value = ''; // Reset file input
+        return;
+    }
+    
+    const reader = new FileReader();
+    
+    reader.onload = function(e) {
+        try {
+            const content = e.target.result;
+            
+            // Validate JSON
+            if (!isValidJSON(content)) {
+                showStatus(inputStatus, '❌ Invalid JSON format in file', 'error');
+                event.target.value = ''; // Reset file input
+                return;
+            }
+            
+            // Format and load the JSON
+            inputSchema.value = formatJSON(content);
+            showStatus(inputStatus, `✅ File "${file.name}" loaded successfully`, 'success');
+            
+            // Clear output
+            outputSchema.value = '';
+            copyOutputBtn.disabled = true;
+            downloadBtn.disabled = true;
+            hideStatus(outputStatus);
+            hideStatus(transformStatus);
+        } catch (error) {
+            showStatus(inputStatus, `❌ Error reading file: ${error.message}`, 'error');
+            event.target.value = ''; // Reset file input
+        }
+    };
+    
+    reader.onerror = function() {
+        showStatus(inputStatus, '❌ Error reading file', 'error');
+        event.target.value = ''; // Reset file input
+    };
+    
+    reader.readAsText(file);
+}
+
 function loadSample() {
     inputSchema.value = JSON.stringify(sampleRecipe, null, 2);
-    showStatus(inputStatus, '✓ Sample recipe loaded', 'success');
+    showStatus(inputStatus, '✓ Sample recipe loaded - Try transforming it!', 'success');
     outputSchema.value = '';
     copyOutputBtn.disabled = true;
     downloadBtn.disabled = true;
@@ -257,6 +317,7 @@ loadSampleBtn.addEventListener('click', loadSample);
 clearInputBtn.addEventListener('click', clearInput);
 copyOutputBtn.addEventListener('click', copyOutput);
 downloadBtn.addEventListener('click', downloadOutput);
+fileUpload.addEventListener('change', handleFileUpload);
 
 // Keyboard shortcuts
 inputSchema.addEventListener('keydown', (e) => {
