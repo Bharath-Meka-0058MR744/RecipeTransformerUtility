@@ -19,15 +19,21 @@
                 <div class="panel-header">
                     <h2>📥 Input Schema</h2>
                     <div class="button-group">
-                        <button id="loadSampleBtn" class="btn btn-secondary">Load Sample</button>
+                        <label for="fileUpload" class="btn btn-primary" title="Upload JSON file from your device">
+                            📁 Upload File
+                        </label>
+                        <input type="file" id="fileUpload" accept=".json,application/json" style="display: none;">
+                        <button id="loadSampleBtn" class="btn btn-secondary" title="Load a sample recipe to try out">
+                            🎯 Try Out Example
+                        </button>
                         <button id="clearInputBtn" class="btn btn-secondary">Clear</button>
                         <button id="validateBtn" class="btn btn-info">Validate</button>
                     </div>
                 </div>
                 <div class="panel-body">
-                    <textarea 
-                        id="inputSchema" 
-                        placeholder="Paste your recipe JSON here..."
+                    <textarea
+                        id="inputSchema"
+                        placeholder="Paste your recipe JSON here or upload a file..."
                         spellcheck="false"
                     ></textarea>
                     <div id="inputStatus" class="status-message"></div>
@@ -69,9 +75,10 @@
             <div class="info-card">
                 <h3>ℹ️ How to Use</h3>
                 <ol>
-                    <li>Paste your recipe JSON in the input area</li>
-                    <li>Click "Validate" to check if it's already in the correct format (optional)</li>
-                    <li>Click "Transform" to convert to recipe-schema-draft-01.json format</li>
+                    <li><strong>Upload a JSON file</strong> from your device or <strong>paste</strong> your recipe JSON in the input area</li>
+                    <li>Click <strong>"Try Out Example"</strong> to load a sample recipe for testing</li>
+                    <li>Click <strong>"Validate"</strong> to check if it's already in the correct format (optional)</li>
+                    <li>Click <strong>"Transform"</strong> to convert to recipe-schema-draft-01.json format</li>
                     <li>Copy or download the transformed output</li>
                 </ol>
             </div>
