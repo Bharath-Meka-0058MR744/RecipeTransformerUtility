@@ -22,6 +22,34 @@ const transformStatus = document.getElementById('transformStatus');
 const btnText = transformBtn.querySelector('.btn-text');
 const btnLoader = transformBtn.querySelector('.btn-loader');
 
+// Header navigation elements
+const menuButton = document.getElementById('menuButton');
+const sideNav = document.getElementById('sideNav');
+
+// Header menu toggle functionality
+function toggleSideNav() {
+    const isOpen = sideNav.classList.toggle('open');
+    menuButton.setAttribute('aria-expanded', isOpen);
+    menuButton.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+}
+
+// Close side nav when clicking outside
+function handleClickOutside(event) {
+    if (sideNav.classList.contains('open') &&
+        !sideNav.contains(event.target) &&
+        !menuButton.contains(event.target)) {
+        toggleSideNav();
+    }
+}
+
+// Close side nav on escape key
+function handleEscapeKey(event) {
+    if (event.key === 'Escape' && sideNav.classList.contains('open')) {
+        toggleSideNav();
+        menuButton.focus();
+    }
+}
+
 // Sample recipe data
 const sampleRecipe = {
     "output": {
@@ -318,6 +346,11 @@ clearInputBtn.addEventListener('click', clearInput);
 copyOutputBtn.addEventListener('click', copyOutput);
 downloadBtn.addEventListener('click', downloadOutput);
 fileUpload.addEventListener('change', handleFileUpload);
+
+// Header navigation event listeners
+menuButton.addEventListener('click', toggleSideNav);
+document.addEventListener('click', handleClickOutside);
+document.addEventListener('keydown', handleEscapeKey);
 
 // Keyboard shortcuts
 inputSchema.addEventListener('keydown', (e) => {
